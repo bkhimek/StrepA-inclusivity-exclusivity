@@ -1,0 +1,32 @@
+# Python cache / env
+__pycache__/
+*.pyc
+.venv/
+.env
+*.lock
+
+# Jupyter noise
+.ipynb_checkpoints/
+
+# OS noise
+.DS_Store
+
+# Data outputs & large files
+data/results/
+data/*.tar
+data/*.zip
+*.tmp
+
+# BLAST databases
+*.nhr
+*.nin
+*.nsq
+*.ndb
+*.not
+*.ntf
+*.nsd
+*.n*  # catches shards
+
+# Logs / reports generated
+logs/
+reports/
