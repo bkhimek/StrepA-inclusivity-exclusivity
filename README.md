@@ -7,8 +7,6 @@ This repository contains a lightweight, reproducible workflow to:
 
 ## Workflow (overview)
 
-```mermaid
-flowchart TD
     A[Download target genomes<br/>S. pyogenes] --> B[Inclusivity analysis<br/>Identify core genes >98%]
     A2[Download near-neighbor genomes<br/>S. dysgalactiae, S. agalactiae, etc.] --> C
     B --> C[Exclusivity analysis<br/>BLAST vs exclusion panel]
