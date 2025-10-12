@@ -30,3 +30,4 @@ data/*.zip
 # Logs / reports generated
 logs/
 reports/
+repo_structure
