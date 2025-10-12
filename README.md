@@ -16,5 +16,19 @@ flowchart TD
     D --> E[Off-target testing<br/>BLAST primers vs near-neighbor DB]
     E --> F[Reporting<br/>Tables + plots + summary]
 
+## Repo layout
 
-
+- `pipelines/panaroo/`
+  - `1_annotate_prokka/` — genome annotation
+  - `2_panaroo/` — pan-genome construction
+  - `3_inclusivity/` — identity filtering
+  - `4_consensus/` — consensus building, SNP mapping
+  - `5_exclusivity/` — BLAST searches vs exclusion panel
+  - `6_reports/` — outputs, plots, summaries
+- `scripts/` — CLI wrappers and shared utilities
+- `data/`
+  - `demo/` — tiny test dataset
+  - `results/` — generated outputs (ignored by Git)
+- `docs/` — runbooks, troubleshooting notes
+- `config/` — parameters (e.g., `params.yaml`)
+- `examples/genes/` — example per-gene runs (ftsA, pbp2a, etc.)
