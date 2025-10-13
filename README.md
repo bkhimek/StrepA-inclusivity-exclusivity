@@ -30,3 +30,10 @@ This repository contains a lightweight, reproducible workflow to:
 - `docs/` — runbooks, troubleshooting notes
 - `config/` — parameters (e.g., `params.yaml`)
 - `examples/genes/` — example per-gene runs (ftsA, pbp2a, etc.)
+
+---
+
+## Documentation
+
+📄 For the full step-by-step runbook, see:  
+[docs/runbook_panaroo.md](docs/runbook_panaroo.md)
