@@ -31,3 +31,7 @@ data/*.zip
 logs/
 reports/
 repo_structure
+
+# Ignore raw genome data
+data/genomes_cds/
+data/genomes_genomic/
