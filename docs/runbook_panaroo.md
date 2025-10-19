@@ -1,86 +1,103 @@
+
 # Runbook: Panaroo-based Strep A Pipeline
 
 This runbook captures the main workflow for inclusivity/exclusivity analysis of *Streptococcus pyogenes* using Prokka + Panaroo.
 
-It is meant as a **living document**:  
-- Every step shows *what is done*, *which scripts are used*, and *where outputs go*.  
+It is meant as a **living document**:
+- Every step shows *what is done*, *which scripts are used*, and *where outputs go*.
 - As you refine/correct scripts, update the notes here so this always reflects the working path.
+
+## 🔧 Scripts overview
+
+For simplicity, **all helper scripts (Bash + Python) are kept in `scripts/`**.  
+This table shows which script belongs to which pipeline step.
+
+| **Step** | **Purpose** | **Script(s)** | **Type** |
+|----------|-------------|---------------|----------|
+| Step 0   | Genome collection & cleanup | `collect_genomic_from_ncbi_pkg.sh` | Bash |
+| Step 1   | Prokka annotation | `run_prokka_demo.sh`, `run_prokka_subset.sh`, `run_prokka_all.sh` | Bash |
+| Step 2   | Panaroo pan-genome | `run_panaroo_demo.sh` | Bash |
+| Step 3   | Inclusivity analysis | `calculate_identity_with_names.py`, `filter_high_identity_genes.py`, `calculate_identity.py` | Python |
+| Step 4   | Consensus & SNP mapping | `build_consensus_sequences.py`, `map_SNPs_vs_consensus.py`, `split_core_alignment.py`, `split_SNP_summary.py` | Python |
+| Step 5   | Exclusivity BLAST & marker evaluation | `blast_output_analysis.py`, `blast_consensus_exclusivity.py`, `summarize_blast_results.py`, `summarize_blast_by_species.py`, `summarize_marker_blast.py` | Python |
+| Step 6   | Reporting & utilities | `find_missing_genes.py`, `filter_high_identity_genes.py` (reuse), plotting scripts (to be added) | Python |
 
 ---
 
+**Note:**  
+- Bash scripts act as wrappers to run big external tools (Prokka, Panaroo).  
+- Python scripts handle downstream analysis (identity filtering, consensus building, SNP mapping, BLAST summaries, etc.).  
+- Keep all scripts in `scripts/` for simplicity; steps are tracked in this table and in the runbook.
+
+
+
+
+
 ## Step 0. Genome download & preparation
 
-- **Purpose**: Obtain and prepare RefSeq (GCF_) CDS FASTA files for analysis, with clear, repeatable steps.
+- **Purpose**: Obtain and prepare RefSeq (GCF_) genome FASTA files for analysis.  
+- Two common options are supported: **CDS FASTA** (coding sequences only) and **Genomic FASTA** (whole assemblies).  
+- For Panaroo and Prokka, **Genomic FASTA is recommended**.
+
+---
 
 ### 0A) Manual download on NCBI (browser)
-1. Go to the NCBI Datasets page for *Streptococcus pyogenes* (taxon 1314) and filter **Assembly level = Complete genomes**.
-2. Click **Download package**.
-3. In the **Download Package** dialog:
-   - **Select file source**: All
-   - **Select file types**: **Genomic coding sequences (FASTA)** (CDS)
-4. Save the zip file, e.g. `S_pyogenes_ncbi_dataset.zip`.
+1. Go to the NCBI Datasets page for *Streptococcus pyogenes* (taxon 1314) and filter **Assembly level = Complete genomes**.  
+2. Click **Download package**.  
+3. In the **Download Package** dialog:  
+   - **Select file source**: All  
+   - **Select file types**:  
+     - If doing CDS workflow: **Genomic coding sequences (FASTA)**  
+     - If doing genomic workflow: **Genomic sequences (FASTA)**  
+4. Save the zip file, e.g. `S_pyogenes_ncbi_dataset.zip`.  
+5. Unzip into a stable folder on Windows (example below).
 
-> This package typically contains both **GCF_** (RefSeq) and **GCA_** (GenBank) folders.
+---
 
-### 0B) Unzip to Windows folder (kept as your raw archive)
-- Unzip the package to a stable location on Windows, e.g.:
-C:\Users\krist\OneDrive\Documents\Bioinformatics\StrepA_inclusivity_exclusivity\S_pyogenes_genomes\ncbi_dataset\
+### 0B) Windows → WSL path translation (example)
+If the package unzips into Windows here:
+C:\Users\krist\OneDrive\Documents\Bioinformatics\Bioinfo_instructions\StrepA_inclusivity_exclusivity\S_pyogenes_genomes\ncbi_dataset\data
+… then the equivalent path in WSL is:
+/mnt/c/Users/krist/OneDrive/Documents/Bioinformatics/Bioinfo_instructions/StrepA_inclusivity_exclusivity/S_pyogenes_genomes/ncbi_dataset/data
 
-After unzip, the path that contains all the per-accession folders is:
-
-C:\Users\krist\OneDrive\Documents\Bioinformatics\StrepA_inclusivity_exclusivity\S_pyogenes_genomes\ncbi_dataset\data
-
-
-### 0C) Windows → WSL path translation (example)
-- Any `C:\...` Windows path is seen in WSL as `/mnt/c/...`.
-
-**Your exact example:**
-- Windows: C:\Users\krist\OneDrive\Documents\Bioinformatics\StrepA_inclusivity_exclusivity\S_pyogenes_genomes\ncbi_dataset\data
-- WSL: /mnt/c/Users/krist/OneDrive/Documents/Bioinformatics/StrepA_inclusivity_exclusivity/S_pyogenes_genomes/ncbi_dataset/data
-
-
-To sanity-check in WSL:
+Check it in WSL:
 ```bash
-ls -l "/mnt/c/Users/krist/OneDrive/Documents/Bioinformatics/StrepA_inclusivity_exclusivity/S_pyogenes_genomes/ncbi_dataset/data" | head
-You should see many GCF_* and GCA_* folders.
+ls -l "/mnt/c/Users/krist/OneDrive/Documents/Bioinformatics/Bioinfo_instructions/StrepA_inclusivity_exclusivity/S_pyogenes_genomes/ncbi_dataset/data" | head
 
-### 0D) Collect only RefSeq CDS into the repo (scripted cleanup)
-We keep the heavy raw package on Windows, and copy only what we need (RefSeq GCF_ CDS FASTA) into the repo on the Linux side.
-1. Script location in repo: scripts/collect_cds_from_ncbi_pkg.sh
-2. Script config inside the file (already set for you):
-PKG_ROOT="/mnt/c/Users/krist/OneDrive/Documents/Bioinformatics/StrepA_inclusivity_exclusivity/S_pyogenes_genomes/ncbi_dataset/data"
-DEST="data/genomes_cds"
-3. Dry-run (prints what would be copied): DRYRUN=1 bash scripts/collect_cds_from_ncbi_pkg.sh
-4. Real run (copies files): bash scripts/collect_cds_from_ncbi_pkg.sh
-The script:
-- iterates only over GCF_* folders (RefSeq),
-- looks for cds_from_genomic.fna[.gz],
-- copies to data/genomes_cds/ as GCF_xxxxxxx.cds.fna[.gz],
-- logs any missing CDS to data/genomes_cds/_missing_cds.log.
+### 0C) Collecting CDS FASTA (optional workflow)
 
-### 0E) Verify results
+Use the script:
+scripts/collect_cds_from_ncbi_pkg.sh
+It looks for cds_from_genomic.fna[.gz] inside GCF_* folders and copies them to:
+data/genomes_cds/
+with filenames like GCF_XXXXXX.cds.fna[.gz].
+Run:bash scripts/collect_cds_from_ncbi_pkg.sh
 
 ls -l data/genomes_cds | head
-echo "Total CDS files:" $(ls data/genomes_cds/*.fna* 2>/dev/null | wc -l)
+echo "Total CDS genomes:" $(ls data/genomes_cds/*.fna* 2>/dev/null | wc -l)
 sed -n '1,15p' data/genomes_cds/_missing_cds.log
 
-### Keep FASTA out of GitHub (.gitignore)
-We track scripts/configs/docs in Git, not large FASTA files.
-.gitignore (root of repo) should include:
-# Ignore raw genome data
-data/genomes_cds/
+### 0D) Collecting Genomic FASTA (recommended workflow)
+Use the script:
+scripts/collect_genomic_from_ncbi_pkg.sh
+It looks for *_genomic.fna[.gz] inside GCF_* folders and copies them to:
 data/genomes_genomic/
-# Commit the .gitignore change if you added those lines:
-git add .gitignore
-git commit -m "Update .gitignore: ignore genome FASTA folders"
-git push origin main
+with filenames like GCF_XXXXXX.genomic.fna[.gz].
 
-### 0G) Track the collector script in Git (safe, small) 
-git add scripts/collect_cds_from_ncbi_pkg.sh
-git commit -m "Add script: collect RefSeq (GCF) CDS FASTA from NCBI package"
-git push origin main
+Run:bash scripts/collect_genomic_from_ncbi_pkg.sh
+ls -l data/genomes_genomic | head
+echo "Total genomic genomes:" $(ls data/genomes_genomic/*.fna* 2>/dev/null | wc -l)
+sed -n '1,15p' data/genomes_genomic/_missing_genomic.log
 
-### Outputs of Step 0: Clean, renamed RefSeq CDS FASTA files in data/genomes_cds/ on the Linux side; missing entries listed in data/genomes_cds/_missing_cds.log.
+### 0E) Keep FASTA out of GitHub
+
+Large FASTA files are ignored via .gitignore.
+Only the scripts and logs are committed to GitHub.
+
+### Outputs of Step 0: 
+data/genomes_genomic/ (preferred) or data/genomes_cds/ with clean, renamed FASTA files.
+
+A log file (_missing_genomic.log or _missing_cds.log) listing any missing sequences.
 
 ---
 
@@ -249,3 +266,4 @@ Mark items with `[x]` when complete.
 - [ ] Step 4: Consensus building & SNP mapping working  
 - [ ] Step 5: Exclusivity analysis (BLAST) working  
 - [ ] Step 6: Reporting pipeline working
+
