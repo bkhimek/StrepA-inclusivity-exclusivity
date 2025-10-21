@@ -34,10 +34,18 @@ pipelines/panaroo/1_annotate_prokka/
 pipelines/panaroo/2_panaroo/
 
 # Keep results clean: ignore by default
+# Ignore large intermediate outputs, but keep summary TSV results
 pipelines/panaroo/3_inclusivity/*
+!pipelines/panaroo/3_inclusivity/*.tsv
+
 pipelines/panaroo/4_consensus/*
+!pipelines/panaroo/4_consensus/*.tsv
+
 pipelines/panaroo/5_exclusivity/*
+!pipelines/panaroo/5_exclusivity/*.tsv
+
 pipelines/panaroo/6_reports/*
+!pipelines/panaroo/6_reports/*.tsv
 
 # But allow key summary tables (TSVs)
 !pipelines/panaroo/3_inclusivity/*.tsv
