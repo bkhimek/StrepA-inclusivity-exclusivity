@@ -22,6 +22,13 @@ This table shows which script belongs to which pipeline step.
 | Step 5   | Exclusivity BLAST & marker evaluation | `blast_output_analysis.py`, `blast_consensus_exclusivity.py`, `summarize_blast_results.py`, `summarize_blast_by_species.py`, `summarize_marker_blast.py` | Python |
 | Step 6   | Reporting & utilities | `find_missing_genes.py`, `filter_high_identity_genes.py` (reuse), plotting scripts (to be added) | Python |
 
+flowchart TD
+  A0[Step 0: Download & clean genomes\n(data/genomes_genomic/*.fna)] --> A1
+  A1[Step 1: Prokka annotate\nscripts/run_prokka_demo.sh\n→ pipelines/panaroo/1_annotate_prokka/<ACC>/*.gff] --> A2
+  A2[Step 2: Panaroo (core threshold)\n95%: scripts/run_panaroo_demo95.sh\n99%: scripts/run_panaroo_demo_core99.sh\n→ core_gene_alignment.aln + gene_presence_absence.csv] --> A2b
+  A2b[Split concatenated alignment\nscripts/split_core_alignment.py\n→ core_gene_alignment.aln.split/*.fasta] --> A3a
+  A3a[Step 3A: Identity per gene\nscripts/run_inclusivity_demo_core99.sh\n→ 3_inclusivity/*_identity.tsv] --> A3b
+  A3b[Step 3B: Filter ≥98% identity\nscripts/run_inclusivity_filter_demo_core99.sh\n→ 3_inclusivity/*_candidates.tsv] --> Next[Step 4 (consensus + SNPs)]
 ---
 
 **Note:**  
@@ -120,45 +127,102 @@ prokka --outdir annotated_genomes/STRAIN_NAME \
 
 ## Step 2. Pan-genome construction (Panaroo)
 
-- **Purpose**: Build the pan-genome and core-genome alignment for *S. pyogenes* strains.
+Purpose: Build the pan-genome and core-genome alignment for S. pyogenes strains.
+Inputs: Prokka GFFs from Step 1.
+Outputs (demo core=95% default):
+- pipelines/panaroo/2_panaroo/demo/core_gene_alignment.aln
+- pipelines/panaroo/2_panaroo/demo/gene_presence_absence.csv
+- other QC files in that folder
 
-- **Process**:
-  1. Collect the annotated `.gff` files from Step 1 (Prokka).  
-  2. Run Panaroo on all `.gff` files with strict cleaning mode.  
-  3. Outputs include the core genome alignment and a presence/absence matrix.
+Example (demo):
+conda activate panaroo_env
+bash scripts/run_panaroo_demo.sh
+conda deactivate
 
-- **Inputs**: Annotated genome `.gff` files from `pipelines/panaroo/1_annotate_prokka/`.  
-- **Outputs**:  
-  - `panaroo_out/core_gene_alignment.aln` (core genome alignment)  
-  - `panaroo_out/gene_presence_absence.csv` (gene presence/absence matrix)  
-  - Other QC outputs in `panaroo_out/`
+## Step 2 (alt): “Near-universal” core (≥99% presence)
+Use this when you want genes present in ~all strains.
+Command:
+conda activate panaroo_env
+bash scripts/run_panaroo_demo_core99.sh
+conda deactivate
 
-- **Example command**:
-```bash
-panaroo -i annotated_genomes/*.gff \
-        -o panaroo_out \
-        --clean-mode strict
+Expected outputs:
+pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln
+pipelines/panaroo/2_panaroo/demo_core99/gene_presence_absence.csv
+pipelines/panaroo/2_panaroo/demo_core99/combined_DNA_CDS.fasta
+
+(Summary showed ~1430 core genes at ≥99% presence.)
+
 
 ## Step 3. Inclusivity analysis
 
-- **Purpose**: Identify genes present in nearly all *S. pyogenes* strains (≥98% identity).
+Goal: Find genes present in ≈all S. pyogenes strains that also show high sequence identity (e.g., ≥98%).
 
-- **Process**:
-  1. Calculate pairwise identity across core genes.  
-  2. Filter genes that meet high-identity thresholds.  
-  3. Collect candidate inclusive genes.
+Inputs: Panaroo outputs from Step 2 (core_gene_alignment.aln, gene_presence_absence.csv, combined_DNA_CDS.fasta).
 
-- **Inputs**: Core alignment from Step 2.  
-- **Outputs**: Inclusivity candidate table.  
+Outputs:
 
-- **Scripts**:  
-  - `calculate_identity_with_names.py`  
-  - `filter_high_identity_genes.py`
+- pipelines/panaroo/3_inclusivity/demo_core99_identity.tsv — per-gene average pairwise identity
+- pipelines/panaroo/3_inclusivity/demo_core99_candidates.tsv — genes passing the identity threshold
 
-- **Example command**:
+Scripts used:
+- scripts/split_core99_from_panaroo.py — creates per-gene MAFFT alignments using GPA + gene_data mapping
+- scripts/calculate_identity_with_names.py — computes per-gene % identity from split FASTAs
+- scripts/filter_high_identity_genes.py — filters by identity cutoff
+
+---
+
+### Step 3A — Prepare per-gene alignments (core=99%) (split with MAFFT)
+
+conda activate roary_env   # env with Biopython + mafft available
+python scripts/split_core99_from_panaroo.py \
+  --gpa       pipelines/panaroo/2_panaroo/demo_core99/gene_presence_absence.csv \
+  --cds       pipelines/panaroo/2_panaroo/demo_core99/combined_DNA_CDS.fasta \
+  --outdir    pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln.split \
+  --min_presence 0.99 \
+  --threads 8
+conda deactivate
+
+Checks:
+
+find pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln.split -type f -name "*.fasta" | wc -l
+ls -lh pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln.split | head
+
+Observed: 1430 per-gene aligned FASTAs written.
+
+# Step 3B — Compute per-gene identities
+
+conda activate roary_env
+python scripts/calculate_identity_with_names.py \
+  --split_dir pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln.split \
+  --output    pipelines/panaroo/3_inclusivity/demo_core99_identity.tsv
+conda deactivate
+
+Checks:
+ls -lh pipelines/panaroo/3_inclusivity/demo_core99_identity.tsv
+head -5 pipelines/panaroo/3_inclusivity/demo_core99_identity.tsv
+- Expect header: Gene_File  Gene_Name  Average_Identity(%)
+
+Observed: file present (~31 KB); identities e.g., COQ5_1 99.27, IMPDH 99.75, …
+
+# Step 3C — Filter genes by identity threshold (≥98%)
+
+bash scripts/run_inclusivity_filter_demo_core99.sh
+
+Checks:
+wc -l  pipelines/panaroo/3_inclusivity/demo_core99_candidates.tsv
+head -10 pipelines/panaroo/3_inclusivity/demo_core99_candidates.tsv
+
+Observed: 1142 genes (one name per line) passed the ≥98% identity filter from the core≥99% set.
+
+
+If you want to version this in GitHub now:
+
 ```bash
-python pipelines/panaroo/3_inclusivity/calculate_identity_with_names.py
-python pipelines/panaroo/3_inclusivity/filter_high_identity_genes.py
+git add docs/runbook_panaroo.md pipelines/panaroo/3_inclusivity/*.tsv scripts/*.py
+git commit -m "Step 3 complete: split+identity (core99) and ≥98% candidates (n=1142)"
+git push origin main
+
 
 ## Step 4. Consensus building & SNP mapping
 

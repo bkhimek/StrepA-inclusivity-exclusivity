@@ -1,43 +1,57 @@
 #!/usr/bin/env python3
-
+import argparse
+from pathlib import Path
 from Bio import AlignIO
-import os
+import csv
 
-# Set input and output paths
-input_alignment = "/home/himek/s_pyogenes_project/panaroo_output_old/core_gene_alignment.aln"
-output_folder = "/home/himek/s_pyogenes_project/panaroo_output_old/core_gene_alignment.aln.split/"
+def pct_identity_of_alignment(aln):
+    seqs = [str(rec.seq) for rec in aln]
+    if len(seqs) < 2:
+        return 100.0 if len(seqs) == 1 else 0.0
+    L = len(seqs[0])
+    total = 0.0
+    pairs = 0
+    for i in range(len(seqs)):
+        for j in range(i + 1, len(seqs)):
+            matches = sum(1 for a, b in zip(seqs[i], seqs[j]) if a == b)
+            total += (matches / L) * 100.0
+            pairs += 1
+    return total / pairs if pairs else 0.0
 
-# Create output folder if it doesn't exist
-os.makedirs(output_folder, exist_ok=True)
+def main():
+    ap = argparse.ArgumentParser(
+        description="Compute average pairwise identity (%) per gene from split core alignments."
+    )
+    ap.add_argument("--split_dir", required=True,
+                    help="Directory of per-gene FASTA/ALN files (core_gene_alignment.aln.split/)")
+    ap.add_argument("--output", required=True,
+                    help="Output TSV path")
+    args = ap.parse_args()
 
-# Read the full core alignment
-alignment = AlignIO.read(input_alignment, "fasta")
+    split_dir = Path(args.split_dir)
+    out_path = Path(args.output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
 
-# How many strains (sequences) and how long the alignment is
-n_sequences = len(alignment)
-alignment_length = alignment.get_alignment_length()
+    files = sorted([p for p in split_dir.iterdir()
+                    if p.suffix.lower() in (".fasta", ".fa", ".aln")])
 
-# Read gene names from core_genes.csv
-gene_list = []
-with open("/home/himek/s_pyogenes_project/panaroo_output_old/core_genes.csv", "r") as f:
-    next(f)  # skip header
-    for line in f:
-        gene_name = line.strip().split(",")[0]
-        gene_list.append(gene_name)
+    rows = []
+    for fp in files:
+        gene = fp.stem
+        try:
+            aln = AlignIO.read(str(fp), "fasta")
+        except Exception:
+            continue
+        pid = pct_identity_of_alignment(aln)
+        rows.append((gene, gene, f"{pid:.2f}"))
 
-# Check if gene number matches the number of windows we expect
-expected_genes = alignment_length // 300  # Rough guess: ~300 bp per gene
-print(f"Total alignment length: {alignment_length}")
-print(f"Number of core genes expected: ~{len(gene_list)}")
+    with out_path.open("w", newline="") as out:
+        w = csv.writer(out, delimiter="\t")
+        w.writerow(["Gene_File", "Gene_Name", "Average_Identity(%)"])
+        w.writerows(rows)
 
-# Now split the alignment into per-gene alignments
-window_size = alignment_length // len(gene_list)
+    print(f"✅ Core gene identity analysis finished! Results saved to: {out_path}")
+    print(f"✅ Genes processed: {len(rows)}")
 
-for idx, gene in enumerate(gene_list):
-    start = idx * window_size
-    end = (idx + 1) * window_size
-    sliced_alignment = alignment[:, start:end]
-    output_file = os.path.join(output_folder, f"{gene}.fasta")
-    AlignIO.write(sliced_alignment, output_file, "fasta")
-
-print(f"✅ Done! Core gene alignments saved to {output_folder}")
+if __name__ == "__main__":
+    main()
