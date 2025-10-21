@@ -1,37 +1,61 @@
-# Python cache / env
-__pycache__/
-*.pyc
-.venv/
-.env
-*.lock
-
-# Jupyter noise
+# ===============================
+# General noise
+# ===============================
+# Jupyter checkpoints
 .ipynb_checkpoints/
-
-# OS noise
+# OS metadata
 .DS_Store
 
-# Data outputs & large files
-data/results/
-data/*.tar
-data/*.zip
-*.tmp
-
-# BLAST databases
-*.nhr
-*.nin
+# ===============================
+# Data: raw and processed
+# ===============================
+# Raw genome FASTA files
+data/genomes_genomic/
+data/genomes_cds/
+data/demo/
+# BLAST databases (huge)
 *.nsq
+*.nin
+*.nhr
 *.ndb
 *.not
 *.ntf
 *.nsd
-*.n*  # catches shards
+*.nto
+*.njs
 
-# Logs / reports generated
+# ===============================
+# Pipeline outputs
+# ===============================
+# Prokka annotations (intermediate)
+pipelines/panaroo/1_annotate_prokka/
+
+# Panaroo full outputs (core alignments, graphs, FASTAs)
+pipelines/panaroo/2_panaroo/
+
+# Keep results clean: ignore by default
+pipelines/panaroo/3_inclusivity/*
+pipelines/panaroo/4_consensus/*
+pipelines/panaroo/5_exclusivity/*
+pipelines/panaroo/6_reports/*
+
+# But allow key summary tables (TSVs)
+!pipelines/panaroo/3_inclusivity/*.tsv
+!pipelines/panaroo/4_consensus/*.tsv
+!pipelines/panaroo/5_exclusivity/*.tsv
+!pipelines/panaroo/6_reports/*.tsv
+
+# ===============================
+# Temporary / large scratch files
+# ===============================
+*.tmp
+*.tar
+*.zip
+*.gz
+*.fna
+*.faa
+*.ffn
+*.csv
+*.tsv
 logs/
 reports/
-repo_structure
-
-# Ignore raw genome data
-data/genomes_cds/
-data/genomes_genomic/
