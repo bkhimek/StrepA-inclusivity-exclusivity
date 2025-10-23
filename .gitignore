@@ -38,7 +38,6 @@ pipelines/panaroo/2_panaroo/
 pipelines/panaroo/3_inclusivity/*
 !pipelines/panaroo/3_inclusivity/*.tsv
 
-pipelines/panaroo/4_consensus/*
 !pipelines/panaroo/4_consensus/*.tsv
 
 pipelines/panaroo/5_exclusivity/*
@@ -59,7 +58,7 @@ pipelines/panaroo/6_reports/*
 *.tmp
 *.tar
 *.zip
-*.gz
+*.gz0
 *.fna
 *.faa
 *.ffn
