@@ -1,0 +1,1136 @@
+Gene	neighbor	best_pident	best_qcovs	decision
+COQ5_1	Streptococcus dysgalactiae subsp. equisimilis	97.548	99	REJECT
+COQ5_2	Streptococcus agalactiae	65.867	98	PASS
+IMPDH	Streptococcus canis	82.555	100	PASS
+accB	Streptococcus dysgalactiae	84.449	99	PASS
+accD	Streptococcus dysgalactiae subsp. equisimilis	95.617	100	REJECT
+ackA	Streptococcus dysgalactiae	93.066	100	REJECT
+acoA	Streptococcus dysgalactiae subsp. equisimilis	96.801	100	REJECT
+acpP_1	Streptococcus canis	78.926	99	PASS
+acpP_2	Streptococcus sp. NCTC 11567	93.333	100	REJECT
+acpS	Streptococcus dysgalactiae	81.564	100	PASS
+act___nudF	Streptococcus dysgalactiae	83.06	99	PASS
+acyP	Streptococcus dysgalactiae	92.832	100	REJECT
+adcR	Streptococcus dysgalactiae subsp. equisimilis	93.018	100	REJECT
+addA	Streptococcus canis	73.633	99	PASS
+adeP	Streptococcus canis	80.573	98	PASS
+adhA	Streptococcus canis	87.906	100	REJECT
+adhE	Streptococcus dysgalactiae subsp. equisimilis	91.019	99	REJECT
+adk	Streptococcus agalactiae ILRI005	97.183	100	REJECT
+agaA	Streptococcus canis	89.043	100	REJECT
+agaC_1	Streptococcus dysgalactiae subsp. equisimilis	98.978	100	REJECT
+agaC_2	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+agrA	Streptococcus sp. NCTC 11567	82.079	99	PASS
+ahpC	Streptococcus dysgalactiae	91.8	100	REJECT
+ahpF	Streptococcus dysgalactiae	99.413	100	REJECT
+alaA	Streptococcus canis	86.037	100	REJECT
+alaS	Streptococcus agalactiae	98.468	99	REJECT
+alsT	Streptococcus canis	88.636	99	REJECT
+ansB	Streptococcus canis	78.991	100	PASS
+apbE	Streptococcus canis	85.197	97	REJECT
+aphA	Streptococcus pseudoporcinus	79.674	91	PASS
+apt	Streptococcus dysgalactiae subsp. equisimilis	87.669	100	REJECT
+araD	Streptococcus dysgalactiae subsp. equisimilis	93.305	99	REJECT
+araQ_2	Streptococcus dysgalactiae subsp. equisimilis	99.353	100	REJECT
+arcA	Streptococcus dysgalactiae subsp. equisimilis	98.381	99	REJECT
+arcB	Streptococcus dysgalactiae subsp. equisimilis	98.225	100	REJECT
+arcC1	Streptococcus dysgalactiae subsp. equisimilis	97.687	100	REJECT
+argR_1	Streptococcus dysgalactiae subsp. equisimilis	86.985	98	REJECT
+argR_2	Streptococcus sp. NCTC 11567	91.772	100	REJECT
+argR_3	Streptococcus canis	85.845	100	REJECT
+argS	Streptococcus dysgalactiae subsp. equisimilis	99.232	100	REJECT
+arlR_1	Streptococcus canis	86.9	100	REJECT
+arlR_2	Streptococcus canis	83.556	100	PASS
+aroA_1	Streptococcus sp. NCTC 11567	77.735	100	PASS
+aroA_2	Streptococcus canis	92.165	100	REJECT
+aroB	Streptococcus canis	88.179	98	REJECT
+aroC	Streptococcus canis	81.389	99	PASS
+aroD	Streptococcus canis	86.099	97	REJECT
+aroE_1	Streptococcus gordonii	84.562	99	PASS
+aroE_2	Streptococcus canis	94.056	98	REJECT
+aroK	Streptococcus canis	73.222	97	PASS
+arsC	Streptococcus dysgalactiae subsp. equisimilis	98.639	100	REJECT
+artM_1	Streptococcus dysgalactiae subsp. equisimilis	99.865	100	REJECT
+artM_2	Streptococcus dysgalactiae subsp. equisimilis	99.865	100	REJECT
+artQ_2	Streptococcus canis	95.328	99	REJECT
+asnA	Streptococcus dysgalactiae subsp. equisimilis	90.735	100	REJECT
+asnS_2	Streptococcus agalactiae	98.812	100	REJECT
+aspB	Streptococcus canis	83.263	98	PASS
+aspS	Streptococcus dysgalactiae subsp. equisimilis	99.6	100	REJECT
+atoD_1	Streptococcus halichoeri	83.333	100	PASS
+atoE	Streptococcus canis	84.588	100	PASS
+atpA	Streptococcus dysgalactiae subsp. equisimilis	99.337	100	REJECT
+atpB	Streptococcus dysgalactiae subsp. equisimilis	97.908	100	REJECT
+atpC	Streptococcus dysgalactiae subsp. equisimilis	98.801	100	REJECT
+atpD	Streptococcus dysgalactiae subsp. equisimilis	99.076	100	REJECT
+atpE	Streptococcus sp. NCTC 11567	97.475	100	REJECT
+atpF	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+atpG	Streptococcus dysgalactiae subsp. equisimilis	99.772	100	REJECT
+atpH	Streptococcus dysgalactiae subsp. equisimilis	99.441	100	REJECT
+axe16A	Streptococcus dysgalactiae subsp. equisimilis	94.656	100	REJECT
+bcrA_2	Streptococcus suis	78.495	61	PASS
+bepA	Streptococcus canis	92.863	99	REJECT
+bfmBAB	Streptococcus dysgalactiae subsp. equisimilis	94.711	100	REJECT
+bglF	Streptococcus dysgalactiae subsp. equisimilis	99.624	100	REJECT
+bglH	Streptococcus dysgalactiae subsp. equisimilis	99.93	100	REJECT
+bglK_1	Streptococcus dysgalactiae subsp. equisimilis	92.857	92	REJECT
+bglK_2	Streptococcus sp. NCTC 11567	91.923	100	REJECT
+birA	Streptococcus canis	89.066	100	REJECT
+brnQ	Streptococcus dysgalactiae subsp. equisimilis	86.566	100	REJECT
+btuD_1	Streptococcus dysgalactiae subsp. equisimilis	91.542	100	REJECT
+btuD_3	Streptococcus canis	84.476	100	PASS
+carA	Streptococcus canis	90.593	98	REJECT
+carB	Streptococcus dysgalactiae subsp. equisimilis	79.185	99	PASS
+cca	Streptococcus canis	90.074	100	REJECT
+ccpA	Streptococcus dysgalactiae subsp. equisimilis	89.111	99	REJECT
+cdaA	Streptococcus canis	82.16	100	PASS
+cdaR	Streptococcus canis	82.863	100	PASS
+cdd	Streptococcus canis	82.308	100	PASS
+celA_1	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+celA_2	Streptococcus dysgalactiae subsp. equisimilis	90.939	100	REJECT
+chbA	Streptococcus dysgalactiae subsp. equisimilis	92.523	100	REJECT
+cimH	Streptococcus dysgalactiae subsp. equisimilis	99.399	100	REJECT
+cinA	Streptococcus dysgalactiae subsp. equisimilis	99.764	100	REJECT
+clcA	Streptococcus dysgalactiae subsp. equisimilis	78.735	100	PASS
+clcB	Streptococcus dysgalactiae	86.995	94	REJECT
+clpC_1	Streptococcus sp. NCTC 11567	78.66	99	PASS
+clpC_2	Streptococcus dysgalactiae	79.122	99	PASS
+clpE	Streptococcus canis	88.055	99	REJECT
+clpP	Streptococcus dysgalactiae subsp. equisimilis	90.017	100	REJECT
+clpX	Streptococcus dysgalactiae subsp. equisimilis	88.211	100	REJECT
+clsA	Streptococcus canis	80.596	99	PASS
+cmk	Streptococcus dysgalactiae subsp. equisimilis	93.979	100	REJECT
+coaA	Streptococcus sp. NCTC 11567	80.586	100	PASS
+coaBC_1	Streptococcus canis	73.016	100	PASS
+coaBC_2	Streptococcus agalactiae	87.065	74	PASS
+coaD	Streptococcus canis	79.352	100	PASS
+coaE	Streptococcus canis	83.392	96	PASS
+codY	Streptococcus canis	86.207	100	REJECT
+cof	Streptococcus canis	79.395	99	PASS
+comA	Streptococcus agalactiae	99.835	100	REJECT
+comEA	Streptococcus canis	91.704	100	REJECT
+comGA	Streptococcus canis	82.272	100	PASS
+copA	Streptococcus dysgalactiae subsp. equisimilis	97.982	99	REJECT
+copR	Streptococcus dysgalactiae subsp. equisimilis	99.851	100	REJECT
+cshA	Streptococcus dysgalactiae subsp. equisimilis	95.988	100	REJECT
+cshB	Streptococcus dysgalactiae	90.49	100	REJECT
+cspLA	Streptococcus dysgalactiae	94.258	99	REJECT
+ctfB	Streptococcus sp. NCTC 11567	99.495	97	REJECT
+ctsR	Streptococcus canis	83.333	100	PASS
+cysE	Streptococcus canis	84.775	99	PASS
+cysK	Streptococcus dysgalactiae subsp. equisimilis	81.749	97	PASS
+cysS	Streptococcus canis	91.295	100	REJECT
+czcD	Streptococcus dysgalactiae subsp. equisimilis	99.543	100	REJECT
+dacA_1	Streptococcus canis	74.096	94	PASS
+dagK_1	Streptococcus canis	84.457	100	PASS
+dcuR	Streptococcus sp. NCTC 11567	99.399	100	REJECT
+dcuS	Streptococcus dysgalactiae subsp. equisimilis	99.805	100	REJECT
+ddl_2	Streptococcus canis	84.16	100	PASS
+def_1	Streptococcus canis	77.616	100	PASS
+def_2	Streptococcus dysgalactiae subsp. equisimilis	81.911	95	PASS
+deoB	Streptococcus dysgalactiae subsp. equisimilis	96.617	100	REJECT
+deoC	Streptococcus agalactiae	98.148	96	REJECT
+der	Streptococcus dysgalactiae subsp. equisimilis	92.83	100	REJECT
+dgkA	Streptococcus canis	94.853	100	REJECT
+dgs	Streptococcus dysgalactiae subsp. equisimilis	85.986	100	REJECT
+dhfR	Streptococcus sp. NCTC 11567	79.317	100	PASS
+dinG_1	Streptococcus canis	81.491	98	PASS
+divIB	Streptococcus canis	82.231	92	PASS
+divIVA	Streptococcus dysgalactiae	86.034	100	REJECT
+dltA	Streptococcus canis	92.073	100	REJECT
+dltC	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+dltD	Streptococcus dysgalactiae subsp. equisimilis	83.225	99	PASS
+dnaA	Streptococcus canis	88.717	100	REJECT
+dnaC	Streptococcus canis	86.564	100	REJECT
+dnaD	Streptococcus canis	81.951	100	PASS
+dnaE2	Streptococcus canis	84.366	100	PASS
+dnaG	Streptococcus canis	88.264	100	REJECT
+dnaI	Streptococcus canis	92.027	100	REJECT
+dnaK	Streptococcus dysgalactiae subsp. equisimilis	98.306	100	REJECT
+dnaN	Streptococcus dysgalactiae subsp. equisimilis	89.71	100	REJECT
+dppC	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.513	100	REJECT
+dprA	Streptococcus dysgalactiae subsp. equisimilis	99.164	100	REJECT
+dps	Streptococcus dysgalactiae subsp. equisimilis	93.939	100	REJECT
+dtd	Streptococcus dysgalactiae subsp. equisimilis GGS_124	97.072	100	REJECT
+dusB	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.284	100	REJECT
+dut	Streptococcus dysgalactiae subsp. equisimilis	89.773	98	REJECT
+ecfA1	Streptococcus dysgalactiae subsp. equisimilis	81.548	100	PASS
+ecfA2	Streptococcus canis	84.935	100	PASS
+ecfT_1	Streptococcus canis	73.754	100	PASS
+ecfT_2	Streptococcus canis	83.756	98	PASS
+ecsA_1	Streptococcus dysgalactiae subsp. equisimilis	99.32	100	REJECT
+ecsA_2	Streptococcus canis	82.133	99	PASS
+efp	Streptococcus dysgalactiae subsp. equisimilis	99.104	100	REJECT
+engB	Streptococcus canis	88.455	98	REJECT
+era	Streptococcus dysgalactiae subsp. equisimilis	99.108	100	REJECT
+ettA	Streptococcus dysgalactiae subsp. equisimilis	95.847	100	REJECT
+exoA	Streptococcus dysgalactiae subsp. equisimilis	95.128	99	REJECT
+ezrA	Streptococcus dysgalactiae subsp. equisimilis	83.285	99	PASS
+fabD	Streptococcus canis	82.821	100	PASS
+fabF	Streptococcus dysgalactiae	89.123	99	REJECT
+fabG	Streptococcus canis	88.98	100	REJECT
+fabH	Streptococcus dysgalactiae subsp. equisimilis	80.123	100	PASS
+fabM	Streptococcus canis	80.177	100	PASS
+fba	Streptococcus dysgalactiae	98.073	100	REJECT
+fbiB	Streptococcus parasuis	96.443	99	REJECT
+femB	Streptococcus dysgalactiae subsp. equisimilis	74.235	99	PASS
+femX_1	Streptococcus canis	89.894	100	REJECT
+femX_1___femX_2	Streptococcus canis	91.83	100	REJECT
+feuC	Streptococcus canis	73.379	87	PASS
+ffh	Streptococcus dysgalactiae subsp. equisimilis	97.505	100	REJECT
+fhs1	Streptococcus canis	87.246	99	REJECT
+fhuD	Streptococcus dysgalactiae subsp. equisimilis	81.525	99	PASS
+fmt	Streptococcus canis	80.342	100	PASS
+fni	Streptococcus canis	90.246	98	REJECT
+folB	Streptococcus canis	91.667	100	REJECT
+folD	Streptococcus canis	80.806	99	PASS
+folE	Streptococcus canis	89.88	99	REJECT
+folP	Streptococcus canis	90.137	100	REJECT
+fpgS_1	Streptococcus canis	87.968	98	REJECT
+fpgS_2	Streptococcus canis	85.13	99	REJECT
+frr	Streptococcus dysgalactiae subsp. equisimilis	96.057	100	REJECT
+fruA	Streptococcus dysgalactiae	99.281	100	REJECT
+ftsA	Streptococcus canis	83.223	100	PASS
+ftsE	Streptococcus canis	84.416	100	PASS
+ftsH	Streptococcus canis	86.538	99	REJECT
+ftsL	Streptococcus canis	84.568	100	PASS
+ftsW	Streptococcus canis	82.667	100	PASS
+ftsX	Streptococcus dysgalactiae subsp. equisimilis	80.645	100	PASS
+ftsY	Streptococcus dysgalactiae subsp. equisimilis	99.162	100	REJECT
+ftsZ	Streptococcus canis	84.242	100	PASS
+fus	Streptococcus dysgalactiae subsp. equisimilis	96.825	100	REJECT
+gap	Streptococcus dysgalactiae subsp. equisimilis	97.428	100	REJECT
+gapN	Streptococcus dysgalactiae subsp. equisimilis	92.717	100	REJECT
+gatA	Streptococcus dysgalactiae subsp. dysgalactiae	98.773	100	REJECT
+gatC_2	Streptococcus dysgalactiae subsp. equisimilis	98.68	100	REJECT
+gdpP	Streptococcus canis	83.662	100	PASS
+ggs	Streptococcus gordonii	86.585	99	REJECT
+gla	Streptococcus agalactiae	79.502	99	PASS
+glcK	Streptococcus canis	92.593	100	REJECT
+glcU	Streptococcus sp. NCTC 11567	92.014	100	REJECT
+gldA	Streptococcus dysgalactiae subsp. equisimilis	99.081	99	REJECT
+glgP	Streptococcus dysgalactiae subsp. equisimilis	98.185	99	REJECT
+glmM	Streptococcus dysgalactiae subsp. equisimilis	98.525	100	REJECT
+glnA	Streptococcus canis	84.261	100	PASS
+glnH	Streptococcus dysgalactiae subsp. equisimilis	76.675	98	PASS
+glnQ_2	Streptococcus canis	91.565	100	REJECT
+glnR	Streptococcus sp. NCTC 11567	84.14	100	PASS
+gloA	Streptococcus canis	86.772	100	REJECT
+glpK	Streptococcus dysgalactiae subsp. equisimilis	93.382	99	REJECT
+gltX	Streptococcus dysgalactiae subsp. equisimilis	88.264	99	REJECT
+glyA	Streptococcus canis	92.442	100	REJECT
+glyQ	Streptococcus dysgalactiae subsp. equisimilis	89.871	100	REJECT
+gmk	Streptococcus dysgalactiae subsp. equisimilis	89.414	97	REJECT
+gmuD_1	Streptococcus sp. NCTC 11567	99.857	100	REJECT
+gmuE	Streptococcus canis	85.181	99	REJECT
+gor	Streptococcus dysgalactiae subsp. equisimilis	99.557	100	REJECT
+gph_1	Streptococcus dysgalactiae subsp. equisimilis	96.452	99	REJECT
+gph_2	Streptococcus canis	82.548	100	PASS
+gpmA_1	Streptococcus dysgalactiae subsp. equisimilis	98.707	100	REJECT
+gpsA	Streptococcus dysgalactiae	88.0	100	REJECT
+gpsB	Streptococcus canis	88.991	100	REJECT
+greA	Streptococcus dysgalactiae subsp. equisimilis	87.785	100	REJECT
+groL	Streptococcus dysgalactiae subsp. equisimilis	88.725	100	REJECT
+groS	Streptococcus canis	85.911	100	REJECT
+group_1	Streptococcus dysgalactiae subsp. equisimilis	86.765	86	REJECT
+group_100	Streptococcus pneumoniae	98.687	100	REJECT
+group_1000	Streptococcus dysgalactiae subsp. equisimilis	99.471	100	REJECT
+group_1001	Streptococcus agalactiae	97.006	100	REJECT
+group_1002	Streptococcus canis	72.928	99	PASS
+group_1003	Streptococcus canis	93.197	100	REJECT
+group_1005	Streptococcus canis	77.793	95	PASS
+group_1008	Streptococcus canis	84.921	100	PASS
+group_1009	Streptococcus dysgalactiae subsp. equisimilis GGS_124	98.611	100	REJECT
+group_1012	Streptococcus agalactiae	97.411	100	REJECT
+group_1013	Streptococcus dysgalactiae subsp. equisimilis	99.21	100	REJECT
+group_1014	Streptococcus sp. NCTC 11567	92.731	100	REJECT
+group_1016	Streptococcus dysgalactiae subsp. equisimilis	78.017	99	PASS
+group_1017	Streptococcus dysgalactiae	85.073	100	REJECT
+group_102	Streptococcus canis	87.094	99	REJECT
+group_1020	Streptococcus dysgalactiae subsp. equisimilis	80.034	100	PASS
+group_1024	Streptococcus canis	83.748	94	PASS
+group_1029	Streptococcus canis	85.841	90	REJECT
+group_103	Streptococcus canis	77.006	100	PASS
+group_1030	Streptococcus canis	74.016	71	PASS
+group_1031	Streptococcus canis	78.346	97	PASS
+group_1032	Streptococcus canis	91.874	99	REJECT
+group_1033	Streptococcus canis	88.76	100	REJECT
+group_1034	Streptococcus canis	81.481	100	PASS
+group_1039	Streptococcus dysgalactiae subsp. equisimilis	90.993	86	REJECT
+group_104	Streptococcus canis	87.82	99	REJECT
+group_1041	Streptococcus thermophilus	87.521	99	REJECT
+group_1043	Streptococcus dysgalactiae	99.679	100	REJECT
+group_1046	Streptococcus dysgalactiae	99.275	100	REJECT
+group_1047	Streptococcus canis	90.09	100	REJECT
+group_1048	Streptococcus canis	74.133	58	PASS
+group_105	Streptococcus canis	78.555	100	PASS
+group_1050	Streptococcus canis	90.957	99	REJECT
+group_1051	Streptococcus sp. NCTC 11567	73.684	100	PASS
+group_1052	Streptococcus dysgalactiae subsp. equisimilis	99.765	100	REJECT
+group_1053	Streptococcus sp. NCTC 11567	99.138	99	REJECT
+group_1055	Streptococcus dysgalactiae	78.226	75	PASS
+group_1056	Streptococcus canis	92.702	100	REJECT
+group_106	Streptococcus dysgalactiae subsp. equisimilis	99.689	100	REJECT
+group_1063	Streptococcus canis	76.251	99	PASS
+group_1066	Streptococcus dysgalactiae subsp. equisimilis	92.655	100	REJECT
+group_1069	Streptococcus urinalis	94.737	100	REJECT
+group_1070	Streptococcus canis	89.176	100	REJECT
+group_1071	Streptococcus canis	86.508	100	REJECT
+group_1076	Streptococcus dysgalactiae subsp. equisimilis	93.989	100	REJECT
+group_1077	Streptococcus canis	69.406	82	PASS
+group_1078	Streptococcus dysgalactiae	81.925	99	PASS
+group_1079	Streptococcus canis	86.207	99	REJECT
+group_108	Streptococcus dysgalactiae subsp. equisimilis	99.135	99	REJECT
+group_1082	Streptococcus dysgalactiae subsp. equisimilis	83.744	98	PASS
+group_1083	Streptococcus dysgalactiae	80.654	100	PASS
+group_1085	Streptococcus dysgalactiae	99.855	100	REJECT
+group_1086	Streptococcus canis	84.188	89	PASS
+group_1088	Streptococcus canis	72.441	100	PASS
+group_109	Streptococcus dysgalactiae subsp. equisimilis	99.45	100	REJECT
+group_11	Streptococcus canis	93.515	100	REJECT
+group_110	Streptococcus dysgalactiae	74.851	79	PASS
+group_1100	Streptococcus dysgalactiae subsp. equisimilis	83.794	86	PASS
+group_1101	Streptococcus dysgalactiae subsp. equisimilis	98.579	99	REJECT
+group_1106	Streptococcus sp. NCTC 11567	98.326	100	REJECT
+group_1108	Streptococcus sp. NCTC 11567	94.035	100	REJECT
+group_1111	Streptococcus urinalis	75.962	87	PASS
+group_1114	Streptococcus dysgalactiae	71.903	41	PASS
+group_1117	Streptococcus dysgalactiae subsp. equisimilis	95.571	100	REJECT
+group_1118	Streptococcus dysgalactiae subsp. equisimilis	99.681	100	REJECT
+group_1120	Streptococcus canis	94.328	99	REJECT
+group_1124	Streptococcus dysgalactiae subsp. equisimilis	77.561	94	PASS
+group_1128	Streptococcus agalactiae	91.419	100	REJECT
+group_113	Streptococcus dysgalactiae subsp. equisimilis	88.655	98	REJECT
+group_1133	Streptococcus dysgalactiae subsp. equisimilis	99.502	100	REJECT
+group_1134	Streptococcus constellatus	95.745	96	REJECT
+group_114	Streptococcus canis	92.241	100	REJECT
+group_115	Streptococcus canis	86.476	100	REJECT
+group_1152	Streptococcus dysgalactiae	78.189	90	PASS
+group_1156	Streptococcus dysgalactiae subsp. equisimilis	99.216	100	REJECT
+group_1165	Streptococcus agalactiae	90.523	100	REJECT
+group_1179	Streptococcus canis	81.44	73	PASS
+group_118	Streptococcus canis	80.803	100	PASS
+group_1183	Streptococcus dysgalactiae subsp. equisimilis	98.834	100	REJECT
+group_1195	Streptococcus dysgalactiae subsp. equisimilis	99.206	100	REJECT
+group_12	Streptococcus canis	73.796	98	PASS
+group_1208	Streptococcus canis	99.225	100	REJECT
+group_1219	Streptococcus sp. NCTC 11567	91.52	100	REJECT
+group_122	Streptococcus canis	74.393	87	PASS
+group_1225	Streptococcus sp. NCTC 11567	99.377	100	REJECT
+group_1226	Streptococcus dysgalactiae subsp. equisimilis	79.458	100	PASS
+group_1244	Streptococcus dysgalactiae subsp. equisimilis	97.938	100	REJECT
+group_125	Streptococcus canis	83.822	99	PASS
+group_1253	Streptococcus dysgalactiae subsp. equisimilis	96.837	100	REJECT
+group_126	Streptococcus canis	85.702	100	REJECT
+group_1260	Streptococcus dysgalactiae subsp. equisimilis	96.498	100	REJECT
+group_129	Streptococcus canis	93.486	100	REJECT
+group_131	Streptococcus canis	78.934	100	PASS
+group_132	Streptococcus dysgalactiae subsp. equisimilis	96.894	99	REJECT
+group_133	Streptococcus dysgalactiae subsp. equisimilis	99.393	99	REJECT
+group_1338	Streptococcus dysgalactiae subsp. equisimilis	97.308	100	REJECT
+group_134	Streptococcus canis	91.436	100	REJECT
+group_1356	Streptococcus dysgalactiae subsp. equisimilis	98.667	100	REJECT
+group_1381	Streptococcus dysgalactiae subsp. equisimilis	99.644	100	REJECT
+group_1385	Streptococcus suis	99.512	100	REJECT
+group_139	Streptococcus canis	78.369	100	PASS
+group_14	Streptococcus dysgalactiae subsp. equisimilis	99.233	100	REJECT
+group_140	Streptococcus canis	72.606	100	PASS
+group_146	Streptococcus dysgalactiae subsp. equisimilis	99.635	100	REJECT
+group_15	Streptococcus dysgalactiae subsp. equisimilis	99.758	100	REJECT
+group_150	Streptococcus canis	78.381	99	PASS
+group_151	Streptococcus dysgalactiae subsp. equisimilis	99.906	100	REJECT
+group_156	Streptococcus canis	73.346	100	PASS
+group_160	Streptococcus canis	74.733	100	PASS
+group_164	Streptococcus canis	85.574	99	REJECT
+group_165	Streptococcus dysgalactiae subsp. equisimilis	99.603	100	REJECT
+group_167	Streptococcus canis	83.483	100	PASS
+group_170	Streptococcus canis	75.34	96	PASS
+group_171	Streptococcus dysgalactiae	74.711	95	PASS
+group_174	Streptococcus porcinus	85.613	100	REJECT
+group_175	Streptococcus agalactiae	98.967	98	REJECT
+group_176	Streptococcus equi subsp. zooepidemicus	74.482	93	PASS
+group_178	Streptococcus canis	93.661	100	REJECT
+group_180	Streptococcus dysgalactiae subsp. dysgalactiae	84.091	99	PASS
+group_182	Streptococcus gordonii	84.693	92	PASS
+group_184	Streptococcus canis	85.185	95	REJECT
+group_185	Streptococcus canis	74.479	99	PASS
+group_186	Streptococcus canis	90.447	100	REJECT
+group_187	Streptococcus sp. NCTC 11567	88.924	100	REJECT
+group_188	Streptococcus sp. NCTC 11567	84.254	100	PASS
+group_190	Streptococcus canis	91.509	100	REJECT
+group_191	Streptococcus pseudoporcinus	79.328	100	PASS
+group_193	Streptococcus canis	91.852	100	REJECT
+group_194	Streptococcus dysgalactiae subsp. equisimilis	98.307	100	REJECT
+group_197	Streptococcus dysgalactiae subsp. equisimilis	90.977	100	REJECT
+group_200	Streptococcus canis	93.162	100	REJECT
+group_201	Streptococcus canis	88.805	99	REJECT
+group_204	Streptococcus iniae	78.132	98	PASS
+group_205	Streptococcus canis	84.698	100	PASS
+group_206	Streptococcus dysgalactiae subsp. equisimilis	99.137	100	REJECT
+group_207	Streptococcus dysgalactiae subsp. equisimilis	96.906	98	REJECT
+group_209	Streptococcus dysgalactiae subsp. equisimilis	83.864	99	PASS
+group_211	Streptococcus canis	90.597	99	REJECT
+group_215	Streptococcus canis	74.282	91	PASS
+group_217	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_219	Streptococcus canis	78.799	95	PASS
+group_222	Streptococcus dysgalactiae subsp. equisimilis	91.779	100	REJECT
+group_225	Streptococcus canis	88.182	99	REJECT
+group_226	Streptococcus dysgalactiae subsp. equisimilis GGS_124	74.507	92	PASS
+group_227	Streptococcus canis	85.21	100	REJECT
+group_228	Streptococcus canis	93.556	99	REJECT
+group_230	Streptococcus canis	91.58	100	REJECT
+group_231	Streptococcus canis	69.089	99	PASS
+group_233	Streptococcus canis	74.451	100	PASS
+group_234	Streptococcus dysgalactiae subsp. dysgalactiae	79.907	100	PASS
+group_235	Streptococcus canis	83.624	100	PASS
+group_240	Streptococcus dysgalactiae	82.775	98	PASS
+group_241	Streptococcus canis	82.837	99	PASS
+group_243	Streptococcus canis	80.783	100	PASS
+group_244	Streptococcus pseudoporcinus	86.188	99	REJECT
+group_248	Streptococcus canis	82.402	100	PASS
+group_25	Streptococcus dysgalactiae subsp. equisimilis	99.272	100	REJECT
+group_250	Streptococcus parasuis	97.143	8	PASS
+group_253	Streptococcus canis	94.383	100	REJECT
+group_256	Streptococcus dysgalactiae subsp. equisimilis	98.775	100	REJECT
+group_257	Streptococcus dysgalactiae	79.218	100	PASS
+group_258	Streptococcus dysgalactiae subsp. equisimilis	97.531	100	REJECT
+group_260	Streptococcus dysgalactiae	68.519	92	PASS
+group_261	Streptococcus canis	83.643	100	PASS
+group_265	Streptococcus dysgalactiae subsp. equisimilis	85.031	100	REJECT
+group_266	Streptococcus canis	76.788	100	PASS
+group_269	Streptococcus canis	88.384	100	REJECT
+group_27	Streptococcus canis	74.408	100	PASS
+group_271	Streptococcus canis	69.647	99	PASS
+group_272	Streptococcus dysgalactiae	80.608	100	PASS
+group_273	Streptococcus dysgalactiae subsp. equisimilis	79.949	99	PASS
+group_277	Streptococcus dysgalactiae subsp. equisimilis	98.982	100	REJECT
+group_28	Streptococcus dysgalactiae subsp. equisimilis	80.575	91	PASS
+group_282	Streptococcus dysgalactiae subsp. equisimilis	90.143	100	REJECT
+group_286	Streptococcus dysgalactiae subsp. equisimilis	98.039	100	REJECT
+group_294	Streptococcus agalactiae	69.831	62	PASS
+group_296	Streptococcus canis	78.278	100	PASS
+group_297	Streptococcus dysgalactiae subsp. equisimilis	98.274	100	REJECT
+group_3	Streptococcus dysgalactiae subsp. equisimilis	93.184	89	REJECT
+group_301	Streptococcus dysgalactiae subsp. equisimilis	72.14	99	PASS
+group_304	Streptococcus dysgalactiae subsp. equisimilis	98.381	100	REJECT
+group_305	Streptococcus dysgalactiae subsp. equisimilis	86.64	100	REJECT
+group_307	Streptococcus canis	89.295	100	REJECT
+group_314	Streptococcus canis	69.504	39	PASS
+group_315	Streptococcus urinalis	71.498	28	PASS
+group_32	Streptococcus dysgalactiae	91.879	100	REJECT
+group_322	Streptococcus parauberis	86.62	99	REJECT
+group_323	Streptococcus dysgalactiae subsp. equisimilis	84.04	100	PASS
+group_324	Streptococcus canis	81.089	98	PASS
+group_326	Streptococcus dysgalactiae subsp. equisimilis	79.772	99	PASS
+group_327	Streptococcus dysgalactiae	82.833	100	PASS
+group_329	Streptococcus canis	85.385	93	REJECT
+group_330	Streptococcus dysgalactiae	82.395	100	PASS
+group_334	Streptococcus iniae	76.901	100	PASS
+group_335	Streptococcus porcinus	72.47	97	PASS
+group_338	Streptococcus dysgalactiae subsp. equisimilis	86.404	100	REJECT
+group_339	Streptococcus canis	80.323	100	PASS
+group_34	Streptococcus dysgalactiae	97.759	100	REJECT
+group_344	Streptococcus dysgalactiae subsp. equisimilis	75.826	86	PASS
+group_345	Streptococcus porcinus	73.842	99	PASS
+group_346	Streptococcus dysgalactiae subsp. equisimilis	96.861	100	REJECT
+group_348	Streptococcus dysgalactiae subsp. dysgalactiae	72.929	74	PASS
+group_35	Streptococcus dysgalactiae subsp. equisimilis	99.714	100	REJECT
+group_350	Streptococcus dysgalactiae subsp. equisimilis	94.521	100	REJECT
+group_351	Streptococcus canis	74.308	99	PASS
+group_352	Streptococcus sp. NCTC 11567	70.597	97	PASS
+group_353	Streptococcus dysgalactiae subsp. equisimilis	99.846	100	REJECT
+group_354	Streptococcus sp. NCTC 11567	98.464	100	REJECT
+group_358	Streptococcus dysgalactiae subsp. equisimilis	93.157	99	REJECT
+group_36	Streptococcus dysgalactiae subsp. equisimilis GGS_124	89.522	100	REJECT
+group_360	Streptococcus dysgalactiae subsp. equisimilis	98.754	100	REJECT
+group_361	Streptococcus dysgalactiae subsp. equisimilis	83.043	98	PASS
+group_367	Streptococcus dysgalactiae subsp. equisimilis	89.573	100	REJECT
+group_368	Streptococcus dysgalactiae subsp. dysgalactiae	73.288	92	PASS
+group_376	Streptococcus canis	78.344	76	PASS
+group_377	Streptococcus canis	78.778	100	PASS
+group_378	Streptococcus canis	94.66	100	REJECT
+group_38	Streptococcus canis	73.57	99	PASS
+group_383	Streptococcus canis	77.597	100	PASS
+group_384	Streptococcus dysgalactiae	99.35	100	REJECT
+group_385	Streptococcus canis	75.323	100	PASS
+group_387	Streptococcus dysgalactiae subsp. dysgalactiae	90.594	100	REJECT
+group_391	Streptococcus canis	76.094	98	PASS
+group_392	Streptococcus canis	89.535	99	REJECT
+group_395	Streptococcus canis	90.381	100	REJECT
+group_398	Streptococcus dysgalactiae subsp. equisimilis	96.422	99	REJECT
+group_399	Streptococcus canis	89.394	100	REJECT
+group_40	Streptococcus dysgalactiae subsp. equisimilis	77.501	100	PASS
+group_400	Streptococcus canis	81.987	100	PASS
+group_404	Streptococcus dysgalactiae subsp. equisimilis	99.83	100	REJECT
+group_405	Streptococcus dysgalactiae	81.122	100	PASS
+group_406	Streptococcus canis	73.083	100	PASS
+group_416	Streptococcus canis	76.268	98	PASS
+group_419	Streptococcus canis	73.593	83	PASS
+group_42	Streptococcus canis	78.215	99	PASS
+group_420	Streptococcus canis	81.541	100	PASS
+group_424	Streptococcus dysgalactiae subsp. equisimilis	86.496	99	REJECT
+group_426	Streptococcus agalactiae	90.079	91	REJECT
+group_429	Streptococcus canis	89.851	73	PASS
+group_430	Streptococcus canis	72.395	100	PASS
+group_433	Streptococcus dysgalactiae subsp. equisimilis	99.815	100	REJECT
+group_436	Streptococcus canis	79.213	100	PASS
+group_438	Streptococcus dysgalactiae subsp. equisimilis	96.992	99	REJECT
+group_439	Streptococcus dysgalactiae subsp. equisimilis GGS_124	100.0	100	REJECT
+group_440	Streptococcus dysgalactiae subsp. equisimilis	89.888	100	REJECT
+group_441	Streptococcus sp. NCTC 11567	99.435	100	REJECT
+group_443	Streptococcus dysgalactiae subsp. equisimilis	94.318	100	REJECT
+group_445	Streptococcus pseudoporcinus	81.801	99	PASS
+group_446	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_451	Streptococcus canis	82.651	99	PASS
+group_452	Streptococcus dysgalactiae	75.581	83	PASS
+group_455	Streptococcus canis	96.208	100	REJECT
+group_458	Streptococcus dysgalactiae subsp. equisimilis	95.501	100	REJECT
+group_459	Streptococcus dysgalactiae subsp. equisimilis	97.751	100	REJECT
+group_46	Streptococcus canis	78.935	100	PASS
+group_461	Streptococcus dysgalactiae	76.141	99	PASS
+group_463	Streptococcus dysgalactiae subsp. equisimilis	96.624	98	REJECT
+group_47	Streptococcus dysgalactiae	91.471	100	REJECT
+group_470	Streptococcus canis	95.148	100	REJECT
+group_476	Streptococcus canis	83.117	100	PASS
+group_479	Streptococcus canis	72.26	97	PASS
+group_48	Streptococcus dysgalactiae subsp. equisimilis	99.515	100	REJECT
+group_483	Streptococcus canis	84.211	100	PASS
+group_489	Streptococcus canis	92.494	100	REJECT
+group_49	Streptococcus canis	72.237	95	PASS
+group_490	Streptococcus canis	81.614	98	PASS
+group_494	Streptococcus dysgalactiae subsp. equisimilis	79.333	100	PASS
+group_495	Streptococcus dysgalactiae subsp. equisimilis	94.222	100	REJECT
+group_499	Streptococcus sp. NCTC 11567	95.238	100	REJECT
+group_511	Streptococcus canis	74.825	100	PASS
+group_52	Streptococcus sp. NCTC 11567	99.632	100	REJECT
+group_531	Streptococcus canis	83.374	100	PASS
+group_534	Streptococcus canis	77.612	100	PASS
+group_535	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_536	Streptococcus canis	91.045	100	REJECT
+group_546	Streptococcus canis	84.514	98	PASS
+group_547	Streptococcus dysgalactiae subsp. equisimilis	99.483	100	REJECT
+group_553	Streptococcus sp. NCTC 11567	87.664	100	REJECT
+group_554	Streptococcus canis	81.627	100	PASS
+group_56	Streptococcus agalactiae	95.193	100	REJECT
+group_563	Streptococcus dysgalactiae subsp. equisimilis	82.162	99	PASS
+group_564	Streptococcus canis	89.785	100	REJECT
+group_567	Streptococcus dysgalactiae subsp. equisimilis GGS_124	79.403	92	PASS
+group_569	Streptococcus dysgalactiae subsp. equisimilis	78.711	98	PASS
+group_570	Streptococcus dysgalactiae	93.443	100	REJECT
+group_575	Streptococcus canis	88.952	98	REJECT
+group_59	Streptococcus canis	72.465	99	PASS
+group_593	Streptococcus sp. NCTC 11567	80.747	100	PASS
+group_594	Streptococcus dysgalactiae	70.741	77	PASS
+group_598	Streptococcus dysgalactiae subsp. equisimilis	91.57	99	REJECT
+group_6	Streptococcus dysgalactiae subsp. equisimilis	99.537	100	REJECT
+group_601	Streptococcus dysgalactiae subsp. equisimilis	99.708	100	REJECT
+group_602	Streptococcus sp. NCTC 11567	89.181	100	REJECT
+group_606	Streptococcus canis	88.791	100	REJECT
+group_608	Streptococcus troglodytae	75.912	81	PASS
+group_61	Streptococcus dysgalactiae subsp. equisimilis	99.354	100	REJECT
+group_616	Streptococcus canis	93.093	100	REJECT
+group_625	Streptococcus canis	93.464	94	REJECT
+group_626	Streptococcus canis	78.736	53	PASS
+group_627	Streptococcus dysgalactiae subsp. equisimilis	99.388	100	REJECT
+group_628	Streptococcus dysgalactiae subsp. equisimilis	92.049	100	REJECT
+group_629	Streptococcus canis	99.388	100	REJECT
+group_63	Streptococcus dysgalactiae subsp. equisimilis	99.214	100	REJECT
+group_635	Streptococcus canis	73.148	100	PASS
+group_64	Streptococcus canis	89.887	100	REJECT
+group_649	Streptococcus dysgalactiae subsp. equisimilis	85.065	99	REJECT
+group_652	Streptococcus dysgalactiae	88.562	100	REJECT
+group_656	Streptococcus sp. NCTC 11567	77.338	92	PASS
+group_657	Streptococcus dysgalactiae subsp. equisimilis	86.093	99	REJECT
+group_66	Streptococcus canis	91.342	100	REJECT
+group_662	Streptococcus sp. NCTC 11567	94.613	100	REJECT
+group_67	Streptococcus dysgalactiae subsp. equisimilis	99.933	100	REJECT
+group_677	Streptococcus dysgalactiae	80.0	63	PASS
+group_678	Streptococcus dysgalactiae subsp. equisimilis	99.298	100	REJECT
+group_679	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_68	Streptococcus canis	91.232	100	REJECT
+group_680	Streptococcus sp. NCTC 11567	87.719	100	REJECT
+group_689	Streptococcus canis	86.022	100	REJECT
+group_690	Streptococcus dysgalactiae	98.925	100	REJECT
+group_695	Streptococcus dysgalactiae	83.516	100	PASS
+group_696	Streptococcus canis	85.348	100	REJECT
+group_698	Streptococcus dysgalactiae subsp. dysgalactiae	83.883	100	PASS
+group_70	Streptococcus dysgalactiae subsp. equisimilis	90.976	100	REJECT
+group_704	Streptococcus canis	91.111	100	REJECT
+group_721	Streptococcus dysgalactiae	97.287	100	REJECT
+group_725	Streptococcus canis	79.608	100	PASS
+group_726	Streptococcus dysgalactiae subsp. dysgalactiae	91.765	100	REJECT
+group_737	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_742	Streptococcus sp. NCTC 11567	95.062	100	REJECT
+group_744	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_745	Streptococcus canis	85.652	96	REJECT
+group_748	Streptococcus agalactiae	94.515	100	REJECT
+group_75	Streptococcus dysgalactiae subsp. equisimilis	92.808	100	REJECT
+group_755	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_756	Streptococcus canis	96.97	100	REJECT
+group_757	Streptococcus dysgalactiae	87.446	100	REJECT
+group_758	Streptococcus canis	80.0	99	PASS
+group_76	Streptococcus dysgalactiae subsp. equisimilis	70.242	99	PASS
+group_775	Streptococcus dysgalactiae subsp. equisimilis	84.0	100	PASS
+group_78	Streptococcus canis	92.319	100	REJECT
+group_780	Streptococcus dysgalactiae subsp. equisimilis	97.706	98	REJECT
+group_788	Streptococcus dysgalactiae subsp. equisimilis	92.593	100	REJECT
+group_792	Streptococcus dysgalactiae	96.244	100	REJECT
+group_8	Streptococcus canis	86.116	84	REJECT
+group_800	Streptococcus agalactiae	93.627	97	REJECT
+group_815	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_82	Streptococcus canis	93.285	99	REJECT
+group_822	Streptococcus agalactiae	98.99	100	REJECT
+group_825	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_829	Streptococcus agalactiae	82.386	89	PASS
+group_830	Streptococcus canis	86.885	95	REJECT
+group_836	Streptococcus dysgalactiae subsp. equisimilis	99.471	100	REJECT
+group_84	Streptococcus dysgalactiae subsp. equisimilis	88.179	100	REJECT
+group_85	Streptococcus porcinus	81.678	99	PASS
+group_857	Streptococcus sp. NCTC 11567	90.341	99	REJECT
+group_864	Streptococcus canis	86.982	99	REJECT
+group_87	Streptococcus dysgalactiae subsp. equisimilis	98.67	100	REJECT
+group_873	Streptococcus sp. NCTC 11567	90.741	100	REJECT
+group_876	Streptococcus sp. NCTC 11567	98.113	100	REJECT
+group_879	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_88	Streptococcus canis	75.0	100	PASS
+group_881	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+group_890	Streptococcus canis	96.528	100	REJECT
+group_891	Streptococcus canis	97.778	31	PASS
+group_899	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+group_9	Streptococcus dysgalactiae subsp. equisimilis	95.899	100	REJECT
+group_90	Streptococcus sp. NCTC 11567	99.105	100	REJECT
+group_902	Streptococcus sp. NCTC 11567	90.152	100	REJECT
+group_911	Streptococcus dysgalactiae	95.935	100	REJECT
+group_93	Streptococcus canis	86.067	100	REJECT
+group_931	Streptococcus sp. NCTC 11567	88.889	100	REJECT
+group_94	Streptococcus canis	83.296	100	PASS
+group_959	Streptococcus canis	74.12	99	PASS
+group_96	Streptococcus dysgalactiae subsp. equisimilis	95.946	100	REJECT
+group_960	Streptococcus canis	74.12	99	PASS
+group_997	Streptococcus dysgalactiae subsp. equisimilis	94.472	100	REJECT
+grpE	Streptococcus agalactiae	98.689	100	REJECT
+gsiC	Streptococcus sp. NCTC 11567	98.773	100	REJECT
+gtaB_1	Streptococcus canis	80.54	99	PASS
+gtaB_2	Streptococcus dysgalactiae subsp. equisimilis	99.105	98	REJECT
+guaA	Streptococcus dysgalactiae	89.827	100	REJECT
+guaB	Streptococcus canis	92.5	99	REJECT
+guaC	Streptococcus dysgalactiae subsp. equisimilis	99.492	100	REJECT
+gyrA	Streptococcus canis	88.985	97	REJECT
+hel	Streptococcus dysgalactiae	79.904	97	PASS
+hemW	Streptococcus dysgalactiae subsp. equisimilis	93.652	96	REJECT
+hflX	Streptococcus sp. NCTC 11567	89.211	100	REJECT
+hisS	Streptococcus dysgalactiae subsp. equisimilis	97.881	99	REJECT
+hit	Streptococcus canis	81.19	100	PASS
+hmo	Streptococcus canis	82.925	99	PASS
+hmpT	Streptococcus canis	77.06	95	PASS
+hpf	Streptococcus dysgalactiae subsp. equisimilis	88.321	99	REJECT
+hprK	Streptococcus canis	85.531	100	REJECT
+hpt	Streptococcus canis	87.293	100	REJECT
+hrcA	Streptococcus agalactiae	98.261	100	REJECT
+hsdR	Streptococcus agalactiae	92.346	99	REJECT
+hslO	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.542	100	REJECT
+htpX	Streptococcus canis	81.147	100	PASS
+htrA	Streptococcus dysgalactiae subsp. equisimilis	99.592	100	REJECT
+hup	Streptococcus sp. NCTC 11567	96.377	100	REJECT
+hutG	Streptococcus dysgalactiae subsp. equisimilis	99.392	100	REJECT
+hutI	Streptococcus dysgalactiae	99.131	100	REJECT
+ilvE	Streptococcus dysgalactiae subsp. equisimilis	99.804	100	REJECT
+infB	Streptococcus dysgalactiae subsp. equisimilis	90.476	97	REJECT
+infC	Streptococcus canis	97.74	100	REJECT
+iscS_1	Streptococcus canis	90.814	100	REJECT
+iscS_2	Streptococcus canis	80.585	100	PASS
+iscU	Streptococcus canis	93.125	100	REJECT
+isdF	Streptococcus canis	92.473	100	REJECT
+ispE___ispE_2	Streptococcus sp. NCTC 11567	83.019	93	PASS
+kdgA	Streptococcus dysgalactiae subsp. equisimilis	91.493	91	REJECT
+kduD	Streptococcus dysgalactiae	98.365	100	REJECT
+ktrA	Streptococcus dysgalactiae	98.963	100	REJECT
+ktrB	Streptococcus canis	84.427	99	PASS
+lacA_2	Streptococcus parauberis	95.105	100	REJECT
+lacC_1	Streptococcus dysgalactiae	99.013	100	REJECT
+lacD1	Streptococcus dysgalactiae	77.403	100	PASS
+lacD2	Streptococcus agalactiae	95.528	100	REJECT
+lacF_2	Streptococcus pseudoporcinus	93.396	100	REJECT
+lacR_2	Streptococcus canis	86.968	98	REJECT
+lacR_3	Streptococcus dysgalactiae	90.956	100	REJECT
+lacZ	Streptococcus canis	90.368	99	REJECT
+larR	Streptococcus equi subsp. zooepidemicus	77.679	93	PASS
+ldh1	Streptococcus canis	93.902	100	REJECT
+lemA	Streptococcus canis	95.161	100	REJECT
+leuS	Streptococcus agalactiae	96.162	99	REJECT
+levE	Streptococcus sp. NCTC 11567	99.182	100	REJECT
+lgt	Streptococcus canis	86.264	99	REJECT
+licA	Streptococcus sp. NCTC 11567	99.405	100	REJECT
+licR_1	Streptococcus canis	82.271	100	PASS
+licT	Streptococcus dysgalactiae subsp. equisimilis	99.881	100	REJECT
+ligA	Streptococcus canis	80.816	100	PASS
+lipL	Streptococcus canis	83.572	91	PASS
+lnrL_1	Streptococcus canis	91.952	100	REJECT
+lnrL_2	Streptococcus porcinus	78.564	100	PASS
+lnrN	Streptococcus porcinus	77.416	99	PASS
+lolD	Streptococcus canis	95.442	100	REJECT
+lplA	Streptococcus canis	88.039	100	REJECT
+lplJ	Streptococcus dysgalactiae subsp. equisimilis	99.495	100	REJECT
+lspA	Streptococcus dysgalactiae subsp. equisimilis	99.564	100	REJECT
+ltaS1	Streptococcus canis	82.847	98	PASS
+luxS	Streptococcus canis	91.858	99	REJECT
+lysS	Streptococcus dysgalactiae subsp. equisimilis	98.929	100	REJECT
+lytG	Streptococcus canis	70.547	99	PASS
+malR	Streptococcus canis	79.195	99	PASS
+malX_1	Streptococcus canis	91.069	100	REJECT
+manA	Streptococcus canis	91.102	99	REJECT
+manX_2	Streptococcus dysgalactiae subsp. equisimilis	99.698	100	REJECT
+manZ_2	Streptococcus dysgalactiae subsp. equisimilis	98.551	100	REJECT
+manZ_3	Streptococcus dysgalactiae subsp. equisimilis	97.917	100	REJECT
+map	Streptococcus canis	91.87	100	REJECT
+mapZ	Streptococcus canis	88.881	99	REJECT
+mat	Streptococcus gordonii	87.917	100	REJECT
+mecA	Streptococcus dysgalactiae	83.617	100	PASS
+menH	Streptococcus canis	86.624	100	REJECT
+metK	Streptococcus dysgalactiae subsp. equisimilis	90.901	99	REJECT
+metN	Streptococcus dysgalactiae subsp. equisimilis	93.052	100	REJECT
+metP	Streptococcus dysgalactiae	99.134	100	REJECT
+metQ	Streptococcus dysgalactiae subsp. dysgalactiae	90.898	100	REJECT
+mfd	Streptococcus dysgalactiae subsp. equisimilis	97.905	99	REJECT
+mgsR	Streptococcus dysgalactiae subsp. equisimilis	98.841	97	REJECT
+mhqR	Streptococcus dysgalactiae subsp. dysgalactiae	72.798	90	PASS
+miaA	Streptococcus dysgalactiae subsp. equisimilis	90.568	98	REJECT
+misCA	Streptococcus dysgalactiae subsp. equisimilis	90.247	100	REJECT
+mltF_1	Streptococcus dysgalactiae subsp. equisimilis	95.793	100	REJECT
+mltF_2	Streptococcus dysgalactiae subsp. equisimilis	86.961	100	REJECT
+mltG	Streptococcus canis	89.947	90	REJECT
+mnmA	Streptococcus canis	92.87	100	REJECT
+mnmE	Streptococcus dysgalactiae subsp. equisimilis	99.056	100	REJECT
+mnmG	Streptococcus dysgalactiae	94.192	99	REJECT
+mntB	Streptococcus canis	80.519	99	PASS
+mntR	Streptococcus dysgalactiae	79.475	100	PASS
+mraY	Streptococcus sp. NCTC 11567	85.573	100	REJECT
+mrnC	Streptococcus canis	87.436	94	REJECT
+msrAB	Streptococcus dysgalactiae subsp. equisimilis	98.464	100	REJECT
+msrB	Streptococcus sp. NCTC 11567	91.781	100	REJECT
+msrC	Streptococcus canis	90.964	100	REJECT
+mtcA1	Streptococcus canis	78.992	95	PASS
+mtgA_1	Streptococcus dysgalactiae subsp. equisimilis	85.545	99	REJECT
+mtgA_2	Streptococcus dysgalactiae subsp. equisimilis	88.06	94	REJECT
+mtnN	Streptococcus canis	77.614	97	PASS
+mtsA	Streptococcus canis	87.031	100	REJECT
+murA1_1	Streptococcus canis	83.794	99	PASS
+murA1_2	Streptococcus canis	83.32	99	PASS
+murB	Streptococcus dysgalactiae subsp. equisimilis	98.423	100	REJECT
+murC	Streptococcus canis	83.033	100	PASS
+murD	Streptococcus canis	91.231	99	REJECT
+murE	Streptococcus canis	89.135	99	REJECT
+murG	Streptococcus canis	93.906	100	REJECT
+murI	Streptococcus canis	80.377	100	PASS
+mutL	Streptococcus dysgalactiae subsp. equisimilis	88.312	100	REJECT
+mutM	Streptococcus canis	90.821	100	REJECT
+mutS	Streptococcus sp. NCTC 11567	95.54	100	REJECT
+mutS2	Streptococcus agalactiae	98.467	100	REJECT
+mutX	Streptococcus dysgalactiae subsp. equisimilis	89.662	99	REJECT
+mutY	Streptococcus agalactiae	97.749	100	REJECT
+mvaA	Streptococcus canis	76.372	98	PASS
+mvaS	Streptococcus canis	77.806	100	PASS
+nadC	Streptococcus pneumoniae	99.084	100	REJECT
+nadD	Streptococcus dysgalactiae subsp. equisimilis	99.368	100	REJECT
+nadK	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.522	100	REJECT
+nadR	Streptococcus canis	79.961	98	PASS
+nagR_2	Streptococcus canis	80.973	99	PASS
+naiP	Streptococcus canis	85.301	99	REJECT
+nanA	Streptococcus dysgalactiae subsp. equisimilis	98.033	100	REJECT
+nanE	Streptococcus dysgalactiae subsp. equisimilis	96.879	100	REJECT
+neuA	Streptococcus dysgalactiae	76.167	98	PASS
+niaX	Streptococcus canis	76.686	95	PASS
+nikE	Streptococcus dysgalactiae subsp. equisimilis	99.841	100	REJECT
+npr	Streptococcus canis	92.131	100	REJECT
+nrdD_1	Streptococcus canis	85.434	100	REJECT
+nrdD_2	Streptococcus canis	86.935	99	REJECT
+nrdE	Streptococcus dysgalactiae	79.463	97	PASS
+nrdE2	Streptococcus dysgalactiae subsp. equisimilis	90.88	100	REJECT
+nrdF	Streptococcus canis	86.292	100	REJECT
+nrdF_2	Streptococcus agalactiae	92.083	99	REJECT
+nrdI	Streptococcus dysgalactiae	82.413	99	PASS
+nrdR	Streptococcus dysgalactiae subsp. equisimilis	85.513	100	REJECT
+nrnA	Streptococcus canis	90.668	100	REJECT
+ntcA	Streptococcus sp. NCTC 11567	89.427	100	REJECT
+nth	Streptococcus dysgalactiae	77.086	100	PASS
+ntpA	Streptococcus canis	88.014	100	REJECT
+ntpB	Streptococcus canis	90.102	97	REJECT
+ntpC	Streptococcus canis	76.171	100	PASS
+ntpD	Streptococcus canis	92.173	99	REJECT
+ntpG	Streptococcus canis	78.571	100	PASS
+ntpK	Streptococcus canis	81.875	100	PASS
+nupX	Streptococcus agalactiae	98.753	100	REJECT
+nusA	Streptococcus canis	89.703	100	REJECT
+nusB	Streptococcus canis	79.911	99	PASS
+nusG	Streptococcus sp. NCTC 11567	90.37	100	REJECT
+obg	Streptococcus dysgalactiae subsp. equisimilis	95.129	100	REJECT
+oppC	Streptococcus canis	90.076	100	REJECT
+oppD_1	Streptococcus canis	90.383	100	REJECT
+oppD_2	Streptococcus dysgalactiae subsp. equisimilis	99.378	100	REJECT
+oppF	Streptococcus canis	88.636	100	REJECT
+opuAA	Streptococcus canis	87.793	99	REJECT
+opuCA	Streptococcus dysgalactiae	99.451	100	REJECT
+paaJ	Streptococcus dysgalactiae subsp. equisimilis	92.824	93	REJECT
+pabA	Streptococcus dysgalactiae subsp. equisimilis	93.474	100	REJECT
+panT	Streptococcus canis	77.522	99	PASS
+parC	Streptococcus dysgalactiae subsp. equisimilis	99.051	100	REJECT
+parE	Streptococcus dysgalactiae subsp. equisimilis	96.872	100	REJECT
+pbpX	Streptococcus dysgalactiae	83.651	100	PASS
+pchR	Streptococcus sp. NCTC 11567	86.897	100	REJECT
+pcp	Streptococcus iniae	79.808	96	PASS
+pcrA	Streptococcus dysgalactiae subsp. equisimilis	97.671	100	REJECT
+pdhC	Streptococcus dysgalactiae	96.028	100	REJECT
+pdxK	Streptococcus canis	72.775	99	PASS
+pepA	Streptococcus canis	93.071	100	REJECT
+pepC	Streptococcus canis	92.395	99	REJECT
+pepD	Streptococcus dysgalactiae subsp. equisimilis	99.577	100	REJECT
+pepF1_1	Streptococcus dysgalactiae subsp. equisimilis	98.222	100	REJECT
+pepN	Streptococcus canis	86.294	99	REJECT
+pepO	Streptococcus dysgalactiae subsp. equisimilis	99.314	100	REJECT
+pepQ	Streptococcus canis	89.788	100	REJECT
+pepT	Streptococcus dysgalactiae subsp. equisimilis	99.428	100	REJECT
+pepX	Streptococcus equi subsp. zooepidemicus	70.359	98	PASS
+perR	Streptococcus canis	90.044	97	REJECT
+pfkA	Streptococcus sp. NCTC 11567	97.535	100	REJECT
+pflA	Streptococcus dysgalactiae subsp. equisimilis	89.236	100	REJECT
+pflB	Streptococcus sp. NCTC 11567	97.422	99	REJECT
+pgcA_1	Streptococcus agalactiae	97.898	99	REJECT
+pgcA_2	Streptococcus canis	81.372	99	PASS
+pgdA	Streptococcus canis	73.91	99	PASS
+pgi	Streptococcus dysgalactiae subsp. equisimilis	98.667	100	REJECT
+pgsA	Streptococcus canis	85.635	100	REJECT
+pgtP	Streptococcus dysgalactiae subsp. equisimilis	98.057	100	REJECT
+pheT	Streptococcus dysgalactiae subsp. equisimilis	99.044	100	REJECT
+phoU	Streptococcus canis	85.627	100	REJECT
+plsC	Streptococcus dysgalactiae	99.19	100	REJECT
+plsX	Streptococcus canis	82.061	100	PASS
+plsY	Streptococcus canis	77.245	100	PASS
+pncB2	Streptococcus dysgalactiae	99.107	99	REJECT
+polA	Streptococcus dysgalactiae subsp. equisimilis	98.07	100	REJECT
+polC	Streptococcus dysgalactiae subsp. equisimilis	95.861	99	REJECT
+ponA	Streptococcus dysgalactiae subsp. equisimilis	81.551	96	PASS
+potA_1	Streptococcus canis	84.717	100	PASS
+potA_2	Streptococcus dysgalactiae subsp. equisimilis	96.104	100	REJECT
+potB	Streptococcus dysgalactiae	99.371	100	REJECT
+potD	Streptococcus dysgalactiae	99.628	100	REJECT
+ppaC	Streptococcus canis	92.521	100	REJECT
+ppc	Streptococcus canis	88.13	99	REJECT
+ppm1	Streptococcus dysgalactiae subsp. equisimilis	99.713	100	REJECT
+prfA	Streptococcus agalactiae	97.593	100	REJECT
+prfB	Streptococcus agalactiae	99.185	100	REJECT
+prfC	Streptococcus agalactiae ILRI005	93.636	99	REJECT
+priA	Streptococcus dysgalactiae	90.905	100	REJECT
+prmC	Streptococcus dysgalactiae subsp. equisimilis	80.385	99	PASS
+proC	Streptococcus canis	91.076	99	REJECT
+proS	Streptococcus canis	89.423	99	REJECT
+prs	Streptococcus dysgalactiae	94.808	100	REJECT
+prs2	Streptococcus canis	87.258	100	REJECT
+prsA_1	Streptococcus sp. NCTC 11567	78.659	93	PASS
+prsA_2	Streptococcus dysgalactiae subsp. equisimilis	72.271	98	PASS
+pstB3_1	Streptococcus canis	86.623	99	REJECT
+pstB3_2	Streptococcus canis	91.294	100	REJECT
+pstS1	Streptococcus canis	88.407	99	REJECT
+pta	Streptococcus dysgalactiae subsp. equisimilis	96.888	100	REJECT
+pth	Streptococcus canis	89.474	100	REJECT
+ptsH	Streptococcus sp. NCTC 11567	96.97	100	REJECT
+ptsI	Streptococcus dysgalactiae subsp. equisimilis	96.136	100	REJECT
+pucK	Streptococcus dysgalactiae subsp. equisimilis	98.738	99	REJECT
+purA	Streptococcus dysgalactiae subsp. equisimilis	89.095	100	REJECT
+purB	Streptococcus agalactiae	96.706	99	REJECT
+purF	Streptococcus agalactiae	98.351	100	REJECT
+purN	Streptococcus agalactiae	96.703	98	REJECT
+purR_1	Streptococcus dysgalactiae subsp. equisimilis	87.143	100	REJECT
+pyk	Streptococcus dysgalactiae subsp. equisimilis	97.139	100	REJECT
+pyrB	Streptococcus canis	93.014	97	REJECT
+pyrC	Streptococcus dysgalactiae subsp. equisimilis	95.314	99	REJECT
+pyrDA	Streptococcus dysgalactiae subsp. equisimilis	99.359	100	REJECT
+pyrE	Streptococcus dysgalactiae	83.494	99	PASS
+pyrF	Streptococcus canis	80.725	99	PASS
+pyrG	Streptococcus dysgalactiae subsp. equisimilis GGS_124	92.394	99	REJECT
+pyrH	Streptococcus canis	86.283	100	REJECT
+pyrP	Streptococcus dysgalactiae subsp. equisimilis GGS_124	95.155	99	REJECT
+pyrR	Streptococcus canis	89.655	100	REJECT
+qmcA	Streptococcus dysgalactiae subsp. equisimilis	95.847	100	REJECT
+queH	Streptococcus dysgalactiae subsp. equisimilis	97.656	100	REJECT
+queT	Streptococcus dysgalactiae	81.551	95	PASS
+radA	Streptococcus dysgalactiae subsp. equisimilis	90.315	99	REJECT
+rapA	Streptococcus canis	82.01	99	PASS
+rasP	Streptococcus dysgalactiae subsp. equisimilis	81.111	100	PASS
+rbfA	Streptococcus dysgalactiae	99.43	100	REJECT
+rbsR_2	Streptococcus canis	85.047	99	REJECT
+rcsC_2	Streptococcus dysgalactiae subsp. equisimilis	99.136	100	REJECT
+recA	Streptococcus dysgalactiae subsp. equisimilis	99.648	100	REJECT
+recD2	Streptococcus dysgalactiae	99.389	100	REJECT
+recF	Streptococcus dysgalactiae subsp. equisimilis	99.006	100	REJECT
+recG	Streptococcus agalactiae	98.118	95	REJECT
+recN	Streptococcus dysgalactiae subsp. equisimilis	97.112	100	REJECT
+recO	Streptococcus dysgalactiae	78.22	99	PASS
+recR	Streptococcus canis	90.62	100	REJECT
+recU	Streptococcus dysgalactiae subsp. equisimilis	85.222	100	REJECT
+regX3	Streptococcus dysgalactiae subsp. equisimilis	98.93	100	REJECT
+relA	Streptococcus dysgalactiae subsp. equisimilis	86.622	100	REJECT
+resA	Streptococcus dysgalactiae subsp. equisimilis	98.878	100	REJECT
+rex	Streptococcus canis	85.039	98	REJECT
+rexB	Streptococcus canis	73.09	100	PASS
+rfbA	Streptococcus dysgalactiae subsp. equisimilis	99.31	100	REJECT
+rfbC	Streptococcus dysgalactiae subsp. equisimilis	99.832	100	REJECT
+ribF	Streptococcus dysgalactiae	74.567	99	PASS
+ribU	Streptococcus dysgalactiae subsp. equisimilis	87.943	100	REJECT
+ribZ	Streptococcus dysgalactiae subsp. equisimilis	98.173	100	REJECT
+rimP	Streptococcus canis	82.53	93	PASS
+rlmCD	Streptococcus dysgalactiae subsp. equisimilis	88.782	99	REJECT
+rlmI	Streptococcus canis	90.378	100	REJECT
+rlmL	Streptococcus canis	87.273	100	REJECT
+rlmN	Streptococcus canis	81.121	99	PASS
+rluB	Streptococcus dysgalactiae subsp. equisimilis	87.69	100	REJECT
+rluD_1	Streptococcus dysgalactiae subsp. equisimilis	90.203	99	REJECT
+rluD_2	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.89	100	REJECT
+rmlB	Streptococcus agalactiae	97.297	99	REJECT
+rnc	Streptococcus canis	83.815	99	PASS
+rnhC	Streptococcus dysgalactiae	80.022	100	PASS
+rnj1	Streptococcus canis	84.254	100	PASS
+rnj2	Streptococcus canis	86.033	99	REJECT
+rnpA	Streptococcus canis	87.778	100	REJECT
+rnr	Streptococcus dysgalactiae subsp. equisimilis	94.473	100	REJECT
+rny	Streptococcus dysgalactiae subsp. equisimilis	96.206	100	REJECT
+rnz	Streptococcus dysgalactiae subsp. equisimilis	92.473	100	REJECT
+rpe	Streptococcus sp. NCTC 11567	96.38	100	REJECT
+rpiA	Streptococcus canis	90.058	100	REJECT
+rpiR	Streptococcus dysgalactiae subsp. equisimilis	76.173	100	PASS
+rplA	Streptococcus dysgalactiae subsp. equisimilis	98.261	100	REJECT
+rplB	Streptococcus dysgalactiae subsp. equisimilis	99.76	100	REJECT
+rplC	Streptococcus sp. NCTC 11567	99.841	100	REJECT
+rplD	Streptococcus dysgalactiae subsp. equisimilis	99.519	100	REJECT
+rplE	Streptococcus sp. NCTC 11567	94.843	100	REJECT
+rplF	Streptococcus dysgalactiae subsp. equisimilis	96.648	100	REJECT
+rplGA	Streptococcus canis	90.759	100	REJECT
+rplI	Streptococcus dysgalactiae subsp. dysgalactiae	96.026	100	REJECT
+rplJ	Streptococcus sp. NCTC 11567	99.8	100	REJECT
+rplK	Streptococcus dysgalactiae subsp. equisimilis	98.592	100	REJECT
+rplL	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+rplM	Streptococcus sp. NCTC 11567	99.329	100	REJECT
+rplN	Streptococcus agalactiae	98.103	100	REJECT
+rplO	Streptococcus dysgalactiae	93.197	100	REJECT
+rplP	Streptococcus agalactiae	98.792	100	REJECT
+rplQ	Streptococcus dysgalactiae subsp. equisimilis	99.225	100	REJECT
+rplR	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+rplS	Streptococcus dysgalactiae subsp. equisimilis	100.0	99	REJECT
+rplT	Streptococcus canis	97.5	100	REJECT
+rplU	Streptococcus sp. NCTC 11567	99.683	100	REJECT
+rplV	Streptococcus dysgalactiae	99.42	100	REJECT
+rplW	Streptococcus sp. NCTC 11567	99.663	100	REJECT
+rplX	Streptococcus sp. NCTC 11567	93.791	100	REJECT
+rpmA	Streptococcus dysgalactiae subsp. equisimilis	98.639	100	REJECT
+rpmB	Streptococcus sp. NCTC 11567	98.413	100	REJECT
+rpmD	Streptococcus dysgalactiae	98.361	100	REJECT
+rpmE2	Streptococcus sp. NCTC 11567	99.617	100	REJECT
+rpmF	Streptococcus agalactiae	97.814	100	REJECT
+rpmG3	Streptococcus canis	92.157	100	REJECT
+rpmGA	Streptococcus sp. NCTC 11567	98.667	100	REJECT
+rpmH	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+rpmI	Streptococcus dysgalactiae subsp. equisimilis	98.485	100	REJECT
+rpmJ	Streptococcus agalactiae	98.291	100	REJECT
+rpoA	Streptococcus dysgalactiae	97.657	100	REJECT
+rpoC	Streptococcus dysgalactiae subsp. equisimilis	96.787	100	REJECT
+rpoE	Streptococcus canis	90.603	98	REJECT
+rpoZ	Streptococcus sp. NCTC 11567	88.05	100	REJECT
+rppH	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+rpsA	Streptococcus dysgalactiae subsp. equisimilis	95.937	100	REJECT
+rpsB	Streptococcus dysgalactiae	96.354	100	REJECT
+rpsC	Streptococcus agalactiae	99.083	100	REJECT
+rpsD	Streptococcus dysgalactiae subsp. equisimilis GGS_124	97.712	100	REJECT
+rpsE	Streptococcus dysgalactiae	99.394	100	REJECT
+rpsF	Streptococcus sp. NCTC 11567	99.656	100	REJECT
+rpsG	Streptococcus dysgalactiae subsp. equisimilis	97.877	100	REJECT
+rpsH	Streptococcus dysgalactiae subsp. equisimilis	92.481	100	REJECT
+rpsI	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+rpsJ	Streptococcus agalactiae	99.029	100	REJECT
+rpsK	Streptococcus sp. NCTC 11567	98.438	100	REJECT
+rpsL	Streptococcus dysgalactiae subsp. equisimilis	98.551	100	REJECT
+rpsM	Streptococcus dysgalactiae subsp. dysgalactiae	96.721	100	REJECT
+rpsN2	Streptococcus iniae	89.259	100	REJECT
+rpsO	Streptococcus dysgalactiae subsp. equisimilis	98.148	100	REJECT
+rpsP	Streptococcus dysgalactiae subsp. dysgalactiae	92.308	100	REJECT
+rpsQ	Streptococcus agalactiae	99.617	100	REJECT
+rpsR	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+rpsS	Streptococcus dysgalactiae	98.925	100	REJECT
+rpsT	Streptococcus canis	99.145	100	REJECT
+rpsU	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+rqcH	Streptococcus canis	90.502	100	REJECT
+rsfS	Streptococcus dysgalactiae	92.35	97	REJECT
+rsmA	Streptococcus dysgalactiae subsp. equisimilis	98.74	100	REJECT
+rsmB	Streptococcus dysgalactiae subsp. equisimilis	97.351	100	REJECT
+rsmC	Streptococcus canis	78.024	99	PASS
+rsmD	Streptococcus canis	82.81	100	PASS
+rsmF	Streptococcus canis	93.974	100	REJECT
+rsmG	Streptococcus canis	87.535	100	REJECT
+rsmH	Streptococcus dysgalactiae subsp. equisimilis GGS_124	91.124	100	REJECT
+rsmI	Streptococcus dysgalactiae subsp. equisimilis	92.361	100	REJECT
+rsuA_1	Streptococcus canis	84.836	100	PASS
+rutB	Streptococcus dysgalactiae	76.271	95	PASS
+salA	Streptococcus equi subsp. zooepidemicus	96.599	100	REJECT
+sarA	Streptococcus dysgalactiae	95.129	100	REJECT
+sasA_2	Streptococcus dysgalactiae subsp. equisimilis	99.676	100	REJECT
+sasA_3	Streptococcus canis	81.631	100	PASS
+scaC	Streptococcus canis	82.669	100	PASS
+scpA_1	Streptococcus canis	76.836	100	PASS
+scpB	Streptococcus dysgalactiae	78.022	99	PASS
+scrB	Streptococcus canis	84.397	100	PASS
+sdhA	Streptococcus canis	83.372	99	PASS
+sdhB	Streptococcus dysgalactiae subsp. equisimilis	85.863	100	REJECT
+secA	Streptococcus canis	85.68	99	REJECT
+secG	Streptococcus canis	94.093	100	REJECT
+sepF	Streptococcus sp. NCTC 11567	74.627	100	PASS
+serP1	Streptococcus dysgalactiae subsp. equisimilis	98.913	100	REJECT
+serS	Streptococcus dysgalactiae subsp. equisimilis	94.366	100	REJECT
+sigA	Streptococcus agalactiae	88.96	99	REJECT
+slo	Streptococcus dysgalactiae subsp. equisimilis	98.368	100	REJECT
+smc_1	Streptococcus dysgalactiae subsp. equisimilis	97.861	99	REJECT
+smc_2	Streptococcus canis	75.778	99	PASS
+smpB	Streptococcus dysgalactiae	93.379	94	REJECT
+sodA	Streptococcus dysgalactiae	99.505	100	REJECT
+sorA	Streptococcus dysgalactiae subsp. equisimilis	99.877	100	REJECT
+sorC	Streptococcus dysgalactiae subsp. equisimilis	90.724	100	REJECT
+speB_1	Streptococcus halichoeri	77.778	44	PASS
+speB_2	Streptococcus porcinus	81.032	99	PASS
+sph	Streptococcus dysgalactiae subsp. equisimilis	95.262	100	REJECT
+spo0C	Streptococcus sp. NCTC 11567	88.831	99	REJECT
+spsB_2	Streptococcus dysgalactiae	99.832	100	REJECT
+spxA_1	Streptococcus canis	89.526	99	REJECT
+spxA_2	Streptococcus canis	87.719	100	REJECT
+srlR	Streptococcus dysgalactiae subsp. equisimilis	99.331	100	REJECT
+ssb_1	Streptococcus dysgalactiae subsp. equisimilis	100.0	100	REJECT
+ssb_2	Streptococcus sp. NCTC 11567	99.797	100	REJECT
+sstT	Streptococcus dysgalactiae subsp. equisimilis	80.807	99	PASS
+sthA	Streptococcus dysgalactiae subsp. equisimilis	97.902	100	REJECT
+stkP	Streptococcus dysgalactiae subsp. equisimilis	83.368	100	PASS
+strA	Streptococcus dysgalactiae subsp. equisimilis	87.717	99	REJECT
+sufS	Streptococcus canis	92.747	100	REJECT
+suhB	Streptococcus canis	91.762	100	REJECT
+tag	Streptococcus dysgalactiae subsp. equisimilis	98.574	100	REJECT
+tagG	Streptococcus dysgalactiae subsp. dysgalactiae	82.711	100	PASS
+tagO	Streptococcus canis	86.484	99	REJECT
+tagU	Streptococcus canis	89.051	80	REJECT
+tagU_2	Streptococcus canis	81.267	87	PASS
+tal_1	Streptococcus dysgalactiae subsp. equisimilis	99.845	100	REJECT
+tal_2	Streptococcus dysgalactiae subsp. equisimilis	99.726	100	REJECT
+tcyA_1	Streptococcus dysgalactiae subsp. equisimilis	99.407	100	REJECT
+tcyN	Streptococcus sp. NCTC 11567	89.113	100	REJECT
+tdk	Streptococcus agalactiae	90.877	100	REJECT
+tgnB	Streptococcus canis	81.9	100	PASS
+tgt	Streptococcus dysgalactiae subsp. equisimilis	98.513	100	REJECT
+thiI	Streptococcus canis	90.041	100	REJECT
+thiN	Streptococcus dysgalactiae subsp. equisimilis	93.049	100	REJECT
+thiO	Streptococcus dysgalactiae subsp. equisimilis	97.651	100	REJECT
+thlA_1	Streptococcus canis	81.35	100	PASS
+thrS	Streptococcus dysgalactiae subsp. equisimilis	91.77	100	REJECT
+thyA	Streptococcus sp. NCTC 11567	84.881	100	PASS
+tig	Streptococcus dysgalactiae	88.318	100	REJECT
+tilS	Streptococcus canis	75.445	100	PASS
+tkt	Streptococcus dysgalactiae subsp. equisimilis	99.144	99	REJECT
+tlyA	Streptococcus dysgalactiae subsp. equisimilis	99.275	100	REJECT
+tmcAL	Streptococcus iniae	87.409	99	REJECT
+tmk	Streptococcus dysgalactiae subsp. equisimilis	79.36	97	PASS
+tmpC_1	Streptococcus canis	81.418	100	PASS
+tmpC_2	Streptococcus canis	88.783	99	REJECT
+tpiA	Streptococcus dysgalactiae	93.808	100	REJECT
+treA	Streptococcus dysgalactiae subsp. equisimilis	99.141	100	REJECT
+treR	Streptococcus dysgalactiae subsp. equisimilis	99.72	100	REJECT
+trmB	Streptococcus canis	89.308	100	REJECT
+trmK	Streptococcus canis	84.738	100	PASS
+trmL	Streptococcus sp. NCTC 11567	80.295	99	PASS
+trmR	Streptococcus canis	81.921	100	PASS
+truA	Streptococcus canis	79.139	99	PASS
+truB	Streptococcus dysgalactiae subsp. equisimilis	98.192	100	REJECT
+trxA	Streptococcus agalactiae	99.683	100	REJECT
+trxB	Streptococcus dysgalactiae	86.275	100	REJECT
+tsaB	Streptococcus dysgalactiae	77.023	99	PASS
+tsaD	Streptococcus sp. NCTC 11567	80.312	99	PASS
+tsaE	Streptococcus canis	79.221	100	PASS
+tsf	Streptococcus sp. NCTC 11567	97.406	100	REJECT
+typA	Streptococcus dysgalactiae subsp. equisimilis	98.751	99	REJECT
+tyrS	Streptococcus dysgalactiae	91.162	99	REJECT
+udk	Streptococcus sp. NCTC 11567	93.131	99	REJECT
+udp	Streptococcus agalactiae	98.59	100	REJECT
+ugd	Streptococcus parasuis	98.092	45	PASS
+ulaA_1	Streptococcus dysgalactiae subsp. equisimilis	93.305	100	REJECT
+ulaB	Streptococcus dysgalactiae subsp. equisimilis	99.283	100	REJECT
+ulaC	Streptococcus dysgalactiae subsp. equisimilis	91.564	100	REJECT
+ulaD	Streptococcus dysgalactiae subsp. equisimilis	93.363	100	REJECT
+ulaE	Streptococcus dysgalactiae subsp. equisimilis	99.769	100	REJECT
+ulaG	Streptococcus anginosus	92.857	100	REJECT
+ung	Streptococcus dysgalactiae subsp. equisimilis	99.847	100	REJECT
+upp	Streptococcus dysgalactiae subsp. equisimilis	85.692	99	REJECT
+uppP	Streptococcus dysgalactiae subsp. equisimilis	93.095	100	REJECT
+uppS	Streptococcus dysgalactiae subsp. equisimilis	85.6	100	REJECT
+uvrA	Streptococcus dysgalactiae	97.49	100	REJECT
+uvrB_2	Streptococcus canis	83.719	99	PASS
+uvrC	Streptococcus dysgalactiae subsp. equisimilis	87.125	96	REJECT
+walK	Streptococcus canis	84.587	100	PASS
+walR	Streptococcus dysgalactiae subsp. equisimilis	90.717	100	REJECT
+whiA	Streptococcus canis	92.654	100	REJECT
+xerS	Streptococcus canis	90.85	100	REJECT
+xpt	Streptococcus dysgalactiae subsp. equisimilis	99.828	100	REJECT
+xseA	Streptococcus dysgalactiae subsp. equisimilis GGS_124	97.987	100	REJECT
+xseB	Streptococcus sp. NCTC 11567	100.0	100	REJECT
+xylG	Streptococcus dysgalactiae	85.062	100	REJECT
+xylH	Streptococcus agalactiae	95.58	97	REJECT
+yaaA	Streptococcus dysgalactiae subsp. equisimilis	97.814	100	REJECT
+yabA	Streptococcus dysgalactiae	92.901	100	REJECT
+yabJ	Streptococcus canis	83.102	99	PASS
+ybeY	Streptococcus canis	95.181	100	REJECT
+ybeZ	Streptococcus canis	91.453	100	REJECT
+ybhL	Streptococcus sp. NCTC 11567	83.188	100	PASS
+ybiT_2	Streptococcus dysgalactiae subsp. equisimilis	80.712	100	PASS
+ybjI	Streptococcus canis	90.351	100	REJECT
+yccU	Streptococcus canis	89.157	91	REJECT
+ychF	Streptococcus agalactiae	91.659	99	REJECT
+ycjP	Streptococcus dysgalactiae subsp. equisimilis	86.619	100	REJECT
+yckB	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.074	100	REJECT
+ydcV	Streptococcus dysgalactiae	100.0	100	REJECT
+yeeN	Streptococcus agalactiae	94.282	100	REJECT
+yeeO	Streptococcus canis	82.541	99	PASS
+yfcJ	Streptococcus equi subsp. zooepidemicus, complete sequence	78.196	95	PASS
+yfeW	Streptococcus canis	69.13	89	PASS
+yfiZ	Streptococcus canis	76.754	95	PASS
+yfkJ	Streptococcus canis	77.206	93	PASS
+yfmL	Streptococcus dysgalactiae subsp. equisimilis	93.097	99	REJECT
+yggS	Streptococcus dysgalactiae	82.738	100	PASS
+yhaM	Streptococcus sp. NCTC 11567	88.711	100	REJECT
+yhbY	Streptococcus dysgalactiae subsp. equisimilis	99.353	100	REJECT
+yhgF	Streptococcus dysgalactiae subsp. equisimilis	90.248	100	REJECT
+yhjX	Streptococcus canis	75.043	97	PASS
+yibN	Streptococcus dysgalactiae subsp. equisimilis	96.923	100	REJECT
+yidA_1	Streptococcus dysgalactiae subsp. equisimilis	91.758	100	REJECT
+yidA_2	Streptococcus canis	91.076	99	REJECT
+yidC2	Streptococcus dysgalactiae	93.506	100	REJECT
+yitU	Streptococcus canis	90.853	99	REJECT
+yjbK	Streptococcus canis	75.532	97	PASS
+yjbM	Streptococcus canis	90.991	99	REJECT
+yknX_1	Streptococcus canis	77.456	89	PASS
+yknX_2	Streptococcus dysgalactiae subsp. equisimilis	95.351	100	REJECT
+yknY_1	Streptococcus canis	80.966	99	PASS
+yknY_2	Streptococcus dysgalactiae subsp. equisimilis	98.963	100	REJECT
+yknZ_1	Streptococcus canis	78.133	100	PASS
+yknZ_2	Streptococcus dysgalactiae subsp. equisimilis	99.343	100	REJECT
+ykoD	Streptococcus canis	73.39	93	PASS
+ykuT	Streptococcus canis	78.031	98	PASS
+ylbL	Streptococcus dysgalactiae subsp. equisimilis	76.035	100	PASS
+ypdF	Streptococcus dysgalactiae subsp. equisimilis	93.669	100	REJECT
+yqgQ	Streptococcus sp. NCTC 11567	99.55	100	REJECT
+yrrK	Streptococcus canis	83.571	100	PASS
+yteP	Streptococcus dysgalactiae subsp. equisimilis	98.948	100	REJECT
+ytpP	Streptococcus dysgalactiae subsp. equisimilis	97.214	95	REJECT
+yugI	Streptococcus dysgalactiae subsp. equisimilis	85.255	98	REJECT
+yumC	Streptococcus dysgalactiae subsp. equisimilis	99.698	100	REJECT
+yusV	Streptococcus canis	75.096	100	PASS
+yutF	Streptococcus dysgalactiae subsp. equisimilis	95.817	100	REJECT
+yvcJ	Streptococcus canis	95.286	100	REJECT
+yvgN	Streptococcus dysgalactiae subsp. equisimilis GGS_124	99.643	100	REJECT
+ywlC	Streptococcus canis	92.427	98	REJECT
+yxeN	Streptococcus canis	92.662	100	REJECT
+yycJ	Streptococcus canis	86.015	99	REJECT
+znuA	Streptococcus agalactiae	99.349	100	REJECT
+znuB	Streptococcus canis	89.338	100	REJECT
+znuC	Streptococcus dysgalactiae subsp. equisimilis	93.75	100	REJECT
+zosA	Streptococcus dysgalactiae subsp. equisimilis	91.041	100	REJECT

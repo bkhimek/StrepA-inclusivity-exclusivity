@@ -1,26 +1,31 @@
-
 # Runbook: Panaroo-based Strep A Pipeline
 
-This runbook captures the main workflow for inclusivity/exclusivity analysis of *Streptococcus pyogenes* using Prokka + Panaroo.
+This runbook documents the workflow for finding **Streptococcus pyogenes–specific marker genes** using a pan-genome approach.  
 
-It is meant as a **living document**:
-- Every step shows *what is done*, *which scripts are used*, and *where outputs go*.
-- As you refine/correct scripts, update the notes here so this always reflects the working path.
+The pipeline combines **Prokka** (annotation) + **Panaroo** (pangenome construction) with custom downstream scripts for:
 
-## 🔧 Scripts overview
+- **Inclusivity** → identify genes present in almost all *S. pyogenes* strains with high sequence identity  
+- **Consensus + SNP mapping** → generate representative consensus sequences and assess intra-species variation  
+- **Exclusivity** → filter out genes with close matches in non-*S. pyogenes* species using BLAST  
 
-For simplicity, **all helper scripts (Bash + Python) are kept in `scripts/`**.  
-This table shows which script belongs to which pipeline step.
+The final output is a set of **candidate marker genes** that are:  
+- (i) present in nearly all *S. pyogenes* strains (inclusivity), and  
+- (ii) absent from or divergent in non-*S. pyogenes* bacteria (exclusivity).  
 
-| **Step** | **Purpose** | **Script(s)** | **Type** |
-|----------|-------------|---------------|----------|
-| Step 0   | Genome collection & cleanup | `collect_genomic_from_ncbi_pkg.sh` | Bash |
-| Step 1   | Prokka annotation | `run_prokka_demo.sh`, `run_prokka_subset.sh`, `run_prokka_all.sh` | Bash |
-| Step 2   | Panaroo pan-genome | `run_panaroo_demo.sh` | Bash |
-| Step 3   | Inclusivity analysis | `calculate_identity_with_names.py`, `filter_high_identity_genes.py`, `calculate_identity.py` | Python |
-| Step 4   | Consensus & SNP mapping | `build_consensus_sequences.py`, `map_SNPs_vs_consensus.py`, `split_core_alignment.py`, `split_SNP_summary.py` | Python |
-| Step 5   | Exclusivity BLAST & marker evaluation | `blast_output_analysis.py`, `blast_consensus_exclusivity.py`, `summarize_blast_results.py`, `summarize_blast_by_species.py`, `summarize_marker_blast.py` | Python |
-| Step 6   | Reporting & utilities | `find_missing_genes.py`, `filter_high_identity_genes.py` (reuse), plotting scripts (to be added) | Python |
+🔧 Scripts overview
+
+All helper scripts (Bash + Python) are kept in scripts/.
+This table shows which script belongs to which pipeline step:
+
+| **Step** | **Purpose**                                 | **Script(s)**                                                                                                                                                            | **Type**      |
+| -------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| Step 0   | Genome collection & cleanup                 | `collect_genomic_from_ncbi_pkg.sh`                                                                                                                                       | Bash          |
+| Step 1   | Genome annotation (Prokka)                  | `run_prokka_demo.sh`, `run_prokka_subset.sh`, `run_prokka_all.sh`                                                                                                        | Bash          |
+| Step 2   | Pan-genome (Panaroo)                        | `run_panaroo_demo.sh`, `run_panaroo_demo_core99.sh`, `run_panaroo_demo_core100.sh`                                                                                       | Bash          |
+| Step 3   | Inclusivity analysis (identity + filtering) | `split_core99_from_panaroo.py`, `calculate_identity_with_names.py`, `filter_high_identity_genes.py`, wrappers (`run_inclusivity_demo*.sh`, `run_inclusivity_filter*.sh`) | Python + Bash |
+| Step 4   | Consensus & SNP mapping                     | `build_consensus_from_split.py`, `summarize_snps_vs_consensus.py`, wrapper `run_consensus_demo.sh`                                                                       | Python + Bash |
+| Step 5   | Exclusivity BLAST & summary                 | `blast_consensus_exclusivity.py`, `summarize_blast_exclusivity.py`, wrapper `run_exclusivity_demo.sh` + `run_exclusivity_summarize.sh`                                   | Python + Bash |
+| Step 6   | Extract final PASS consensus FASTAs         | `extract_pass_consensus.py`, wrapper `run_extract_pass_consensus.sh`                                                                                                     | Python + Bash |
 
 flowchart TD
   A0[Step 0: Download & clean genomes\n(data/genomes_genomic/*.fna)] --> A1
@@ -28,16 +33,27 @@ flowchart TD
   A2[Step 2: Panaroo (core threshold)\n95%: scripts/run_panaroo_demo95.sh\n99%: scripts/run_panaroo_demo_core99.sh\n→ core_gene_alignment.aln + gene_presence_absence.csv] --> A2b
   A2b[Split concatenated alignment\nscripts/split_core_alignment.py\n→ core_gene_alignment.aln.split/*.fasta] --> A3a
   A3a[Step 3A: Identity per gene\nscripts/run_inclusivity_demo_core99.sh\n→ 3_inclusivity/*_identity.tsv] --> A3b
-  A3b[Step 3B: Filter ≥98% identity\nscripts/run_inclusivity_filter_demo_core99.sh\n→ 3_inclusivity/*_candidates.tsv] --> Next[Step 4 (consensus + SNPs)]
----
+  A3b[Step 3B: Filter ≥98% identity\nscripts/run_inclusivity_filter_demo_core99.sh\n→ 3_inclusivity/*_candidates.tsv] --> A4
+  A4[Step 4: Consensus + SNP mapping\nscripts/run_consensus_demo.sh\n→ 4_consensus/*.fasta + SNP tables] --> A5
+  A5[Step 5: Exclusivity BLAST vs non-pyogenes\nscripts/run_exclusivity_demo.sh + summarize_blast_exclusivity.py\n→ 5_exclusivity/*_exclusivity.tsv] --> A6
+  A6[Step 6: Extract PASS consensus FASTAs\nscripts/run_extract_pass_consensus.sh\n→ 6_reports/pass_consensus_split/*.fasta]
 
-**Note:**  
-- Bash scripts act as wrappers to run big external tools (Prokka, Panaroo).  
-- Python scripts handle downstream analysis (identity filtering, consensus building, SNP mapping, BLAST summaries, etc.).  
-- Keep all scripts in `scripts/` for simplicity; steps are tracked in this table and in the runbook.
+Notes:
+- Bash wrappers run heavy external tools (Prokka, Panaroo, BLAST).
+- Python scripts perform downstream analysis (identity filtering, consensus, SNP mapping, BLAST summarization).
+- All scripts live in scripts/ for consistency.
+- Steps 0–5 now tested end-to-end with real outputs.
 
-
-
+📊 Example outputs per step
+| **Step** | **Main outputs**                                                                    | **Folder(s)**                                                                             |
+| -------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Step 0   | Raw genome FASTAs                                                                   | `data/genomes/`                                                                           |
+| Step 1   | Prokka GFF annotations                                                              | `pipelines/panaroo/1_annotate_prokka/`                                                    |
+| Step 2   | Panaroo pan-genome outputs (incl. core alignment, gene presence/absence, CDS fasta) | `pipelines/panaroo/2_panaroo/demo_core99/`                                                |
+| Step 3   | Inclusivity: per-gene identity + filtered candidates                                | `pipelines/panaroo/3_inclusivity/`<br> (`*_identity.tsv`, `*_candidates.tsv`)             |
+| Step 4   | Consensus FASTA (all candidates) + SNP tables (per-strain, per-gene)                | `pipelines/panaroo/4_consensus/`<br> (`*_consensus.fasta`, `*_snps.tsv`, `*_pergene.tsv`) |
+| Step 5   | BLAST results against non-*S. pyogenes* db + exclusivity decision table             | `pipelines/panaroo/5_exclusivity/`<br> (`*_vs_nonpyogenes.tsv`, `*_exclusivity.tsv`)      |
+| Step 6   | Final marker FASTAs (only PASS genes)                                               | `pipelines/panaroo/6_reports/pass_consensus_split/*.fasta`                                |
 
 
 ## Step 0. Genome download & preparation
@@ -223,111 +239,174 @@ git add docs/runbook_panaroo.md pipelines/panaroo/3_inclusivity/*.tsv scripts/*.
 git commit -m "Step 3 complete: split+identity (core99) and ≥98% candidates (n=1142)"
 git push origin main
 
+**Provenance**
+- Panaroo core threshold used: **0.99**
+- Identity filter: **≥98%**
+- Result counts:
+  - Core≥99% genes: ~1430 (from `summary_statistics.txt`)
+  - Passing identity (≥98%): **1142** (from `demo_core99_candidates.tsv`)
+- Environments:
+  - `panaroo_env` → panaroo v1.5.x, mafft v7.52x
+  - `roary_env`  → Biopython + mafft present
+- Files tracked in Git:
+  - `pipelines/panaroo/3_inclusivity/demo_core99_identity.tsv`
+  - `pipelines/panaroo/3_inclusivity/demo_core99_candidates.tsv`
 
-## Step 4. Consensus building & SNP mapping
+## ## Step 4 — Consensus + SNP summary
 
-- **Purpose**: Build consensus sequences of candidate inclusive genes and evaluate SNP variation.
+**Goal
+From the high-identity inclusivity candidates (Step 3B), build consensus sequences for each gene and quantify per-strain and per-gene SNP variation.
 
-- **Process**:
-  1. Generate consensus sequences from alignments of high-identity genes (from Step 3).  
-  2. Map SNPs against each consensus sequence.  
-  3. Summarize SNP positions and variability.  
+**Inputs
+From Step 2 (Panaroo, core=99%):
+pipelines/panaroo/2_panaroo/demo_core99/core_gene_alignment.aln
+From Step 3B (filtered inclusivity candidates):
+pipelines/panaroo/3_inclusivity/demo_core99_candidates.tsv
 
-- **Inputs**: Candidate inclusive gene alignments (Step 3).  
-- **Outputs**: Consensus FASTA files, SNP summary tables.  
+**Scripts
+scripts/build_consensus_from_split.py
+Builds consensus FASTA per candidate gene from the split core alignments.
+scripts/map_SNPs_vs_consensus.py
+Counts SNPs per strain vs. consensus and aggregates to per-gene stats.
 
-- **Scripts**:  
-  - `build_consensus_sequences.py`  
-  - `map_SNPs_vs_consensus.py`  
-  - `split_SNP_summary.py`
+Wrapper: scripts/run_consensus_demo.sh
+Orchestrates both steps above and handles inputs/outputs.
 
-- **Example command**:
-```bash
-python pipelines/panaroo/4_consensus/build_consensus_sequences.py \
-       --input inclusivity_candidates.fasta \
-       --output consensus_sequences.fasta
+Run:
+conda activate roary_env
+bash scripts/run_consensus_demo.sh
+conda deactivate
 
-python pipelines/panaroo/4_consensus/map_SNPs_vs_consensus.py \
-       --consensus consensus_sequences.fasta \
-       --alignment core_gene_alignment.aln
 
-python pipelines/panaroo/4_consensus/split_SN
+**Outputs
+pipelines/panaroo/4_consensus/demo_core99_consensus.fasta — consensus sequences (one per gene)
+pipelines/panaroo/4_consensus/demo_core99_snps.tsv — SNPs per (gene × strain)
+pipelines/panaroo/4_consensus/demo_core99_pergene.tsv — per-gene SNP summary (mean, max SNPs)
+
+**Checks
+ls -lh pipelines/panaroo/4_consensus/
+head -5 pipelines/panaroo/4_consensus/demo_core99_pergene.tsv
+head -5 pipelines/panaroo/4_consensus/demo_core99_snps.tsv
+grep -m 5 "^>" pipelines/panaroo/4_consensus/demo_core99_consensus.fasta
+
+
+**QC / interpretation
+# Top 15 most conserved genes (lowest mean SNPs)
+(head -1 && tail -n +2 | sort -k3,3n -k4,4n | head -15) < pipelines/panaroo/4_consensus/demo_core99_pergene.tsv
+
+# Genes with worrying divergence (max SNPs > 10)
+awk 'NR==1 || $4>10' pipelines/panaroo/4_consensus/demo_core99_pergene.tsv | head
+
+# Count of very stable genes (mean ≤1 SNP, max ≤3 SNPs)
+awk 'NR>1 && $3<=1 && $4<=3 {c++} END{print c+0}' pipelines/panaroo/4_consensus/demo_core99_pergene.tsv
 
 ## Step 5. Exclusivity analysis (BLAST)
 
-- **Purpose**: Verify that candidate genes are unique to *S. pyogenes* and not present in near-neighbor species.
+Goal: Ensure that candidate markers are specific to Streptococcus pyogenes by removing genes that also appear (with high similarity) in non-S. pyogenes genomes.
 
-- **Process**:
-  1. Run BLAST searches of consensus sequences (from Step 4) against a panel of near-neighbor genomes.  
-  2. Parse BLAST results to identify unique or specific hits.  
-  3. Summarize exclusivity scores for each candidate gene.  
+ - Inputs:
+Inclusivity consensus genes (from Step 4)
+Non-S. pyogenes BLAST database (pre-built, e.g. streptococcus_non_pyogenes_db.*)
+BLAST search results vs that database
 
-- **Inputs**: Consensus sequences from Step 4, near-neighbor genomes (downloaded in Step 0).  
-- **Outputs**: BLAST reports, exclusivity summary tables.  
+- Outputs:
+pipelines/panaroo/5_exclusivity/demo_core99_vs_nonpyogenes.tsv — raw BLAST hits
+pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv — summarized PASS/REJECT per gene with nearest neighbor species
 
-- **Scripts**:  
-  - `blast_consensus_exclusivity.py`  
-  - `blast_output_analysis.py`  
-  - `summarize_blast_results.py`
+- Scripts used:
+scripts/run_exclusivity_demo.sh — runs BLAST of inclusivity candidates vs non-S. pyogenes db
+scripts/summarize_blast_exclusivity.py — parses BLAST TSV, extracts best hits per gene, assigns decision
+scripts/run_exclusivity_summarize.sh — wrapper to run the summarizer
 
-- **Example command**:
-```bash
-python pipelines/panaroo/5_exclusivity/blast_consensus_exclusivity.py \
-       --input consensus_sequences.fasta \
-       --db data/near_neighbors_db
+## Step 5A — Run BLAST search
 
-python pipelines/panaroo/5_exclusivity/blast_output_analysis.py \
-       --input blast_results.tsv \
-       --output exclusivity_analysis.tsv
+conda activate roary_env
+bash scripts/run_exclusivity_demo.sh
+conda deactivate
 
-python pipelines/panaroo/5_exclusivity/summarize_blast_results.py \
-       --input exclusivity_analysis.tsv \
-       --outdir exclusivity_summaries/
+Produces raw BLAST output:
+pipelines/panaroo/5_exclusivity/demo_core99_vs_nonpyogenes.tsv
 
-## Step 6. Reporting
+## Step 5B — Summarize exclusivity results
 
-- **Purpose**: Generate human-readable reports, tables, and plots that summarize inclusivity and exclusivity results.
+conda activate roary_env
+bash scripts/run_exclusivity_summarize.sh
+conda deactivate
 
-- **Process**:
-  1. Collect outputs from inclusivity (Step 3), consensus/SNP analysis (Step 4), and exclusivity (Step 5).  
-  2. Combine into a unified summary.  
-  3. Format results into tables, plots, and a final report.  
+Produces summary table:
+pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv
 
-- **Inputs**: Results from Steps 3–5.  
-- **Outputs**: Final reports stored in `pipelines/panaroo/6_reports/`.  
+Columns:
+Gene — candidate gene
+neighbor — closest non-S. pyogenes species
+best_pident — best % identity
+best_qcovs — query coverage %
+decision — PASS (exclusive to S. pyogenes) or REJECT (too similar to others
 
-- **Scripts** (examples, depending on implementation):  
-  - `generate_summary_tables.py`  
-  - `plot_results.py`  
-  - `compile_final_report.py`
+Gene    neighbor                                    best_pident  best_qcovs  decision
+COQ5_1  Streptococcus dysgalactiae subsp. equisimilis   97.548      99       REJECT
+COQ5_2  Streptococcus agalactiae                        65.867      98       PASS
+IMPDH   Streptococcus canis                             82.555      100      PASS
+accB    Streptococcus dysgalactiae                      84.449      99       PASS
 
-- **Example command**:
-```bash
-python pipelines/panaroo/6_reports/generate_summary_tables.py \
-       --inclusivity inclusivity_candidates.tsv \
-       --exclusivity exclusivity_analysis.tsv \
-       --snps snp_summaries/ \
-       --output summary_tables/
+- Count how many passed vs rejected
+awk -F'\t' 'NR>1 {count[$5]++} END{for (k in count) print k,count[k]}' \
+  pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv
+- Preview some PASS genes
+awk -F'\t' '$5=="PASS"{print $0}' pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv | head -10
 
-python pipelines/panaroo/6_reports/plot_results.py \
-       --input summary_tables/ \
-       --outdir plots/
 
-python pipelines/panaroo/6_reports/compile_final_report.py \
-       --tables summary_tables/ \
-       --plots plots/ \
-       --output final_report.pdf
+## Step 6. Extract consensus FASTAs for PASS genes
 
-## Status markers
+# Goal: From the consensus sequences (Step 4) and exclusivity summary (Step 5), extract individual FASTA files only for genes that passed exclusivity (decision = PASS).
 
-Use this checklist to track progress as each step is verified.  
-Mark items with `[x]` when complete.
+Inputs:
+Consensus FASTA: pipelines/panaroo/4_consensus/demo_core99_consensus.fasta
+Exclusivity summary: pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv
 
-- [ ] Step 0: Genome download & preparation verified  
-- [ ] Step 1: Genome annotation (Prokka) verified  
-- [ ] Step 2: Pan-genome construction (Panaroo) verified  
-- [ ] Step 3: Inclusivity analysis scripts working  
-- [ ] Step 4: Consensus building & SNP mapping working  
-- [ ] Step 5: Exclusivity analysis (BLAST) working  
-- [ ] Step 6: Reporting pipeline working
+# Outputs:
+One FASTA file per PASS gene under pipelines/panaroo/6_reports/pass_consensus_split/
+
+# Script:
+scripts/extract_pass_consensus.py (Python)
+Wrapper: scripts/run_extract_pass_consensus.sh (Bash)
+
+Command:
+bash scripts/run_extract_pass_consensus.sh
+
+ls -lh pipelines/panaroo/6_reports/pass_consensus_split | head
+- Example output:
+ -rw-r--r-- 1 user group  800 Oct 25 14:10 accB.fasta
+ -rw-r--r-- 1 user group  745 Oct 25 14:10 COQ5_2.fasta
+ -rw-r--r-- 1 user group  912 Oct 25 14:10 IMPDH.fasta
+
+
+Final Deliverables
+
+At the end of the full workflow (Steps 0–6), the pipeline produces a shortlist of candidate diagnostic markers for Streptococcus pyogenes.
+
+✅ Main final outputs
+
+FASTA files (per gene):
+Located in: pipelines/panaroo/6_reports/pass_consensus_split/*.fasta
+
+Each file contains the consensus sequence for a single gene that:
+
+is present in ≥99% of S. pyogenes strains
+has ≥98% pairwise identity
+passes exclusivity check (no high-identity matches in non-S. pyogenes species)
+Master TSV with decisions
+
+pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv
+
+Contains the per-gene summary with:
+ - closest non-S. pyogenes match (species name)
+ - best % identity and query coverage
+ - final decision (PASS or REJECT)
+
+🧾 Interpretation
+
+- Genes labeled PASS are candidate inclusivity/exclusivity markers.
+- Genes labeled REJECT are excluded because of close similarity to non-S. pyogenes species.
+- The FASTA files in pass_consensus_split/ represent the final marker panel and can be used directly for downstream assay design (primer/probe design, etc.).
 
