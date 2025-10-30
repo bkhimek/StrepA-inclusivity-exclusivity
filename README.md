@@ -1,3 +1,14 @@
+# From the repo root
+cat > /tmp/links.md <<'MD'
+> **Quick links**
+> - [Runbook: Panaroo (demo)](docs/runbook_panaroo.md)
+> - [Runbook: All genomes](docs/runbook_panaroo_Strep_A_All_Genomes_Analysis.md)
+
+MD
+
+# Prepend the links block to README.md
+( cat /tmp/links.md; echo; cat README.md ) > README.new && mv README.new README.md
+
 # Strep A in-silico inclusivity/exclusivity pipeline
 
 This repository contains a lightweight, reproducible workflow to:
