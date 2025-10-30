@@ -1,18 +1,23 @@
 # ===============================
 # General noise
 # ===============================
-# Jupyter checkpoints
-.ipynb_checkpoints/
-# OS metadata
 .DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.tmp
+*.bak
+*.save
 
 # ===============================
-# Data: raw and processed
+# Data: raw and external
 # ===============================
-# Raw genome FASTA files
 data/genomes_genomic/
 data/genomes_cds/
 data/demo/
+external/
+!external/README.md
+
 # BLAST databases (huge)
 *.nsq
 *.nin
@@ -27,17 +32,14 @@ data/demo/
 # ===============================
 # Pipeline outputs
 # ===============================
-# Prokka annotations (intermediate)
 pipelines/panaroo/1_annotate_prokka/
-
-# Panaroo full outputs (core alignments, graphs, FASTAs)
 pipelines/panaroo/2_panaroo/
 
-# Keep results clean: ignore by default
-# Ignore large intermediate outputs, but keep summary TSV results
+# Ignore heavy outputs, but keep summary TSVs
 pipelines/panaroo/3_inclusivity/*
 !pipelines/panaroo/3_inclusivity/*.tsv
 
+pipelines/panaroo/4_consensus/*
 !pipelines/panaroo/4_consensus/*.tsv
 
 pipelines/panaroo/5_exclusivity/*
@@ -46,60 +48,16 @@ pipelines/panaroo/5_exclusivity/*
 pipelines/panaroo/6_reports/*
 !pipelines/panaroo/6_reports/*.tsv
 
-# But allow key summary tables (TSVs)
-!pipelines/panaroo/3_inclusivity/*.tsv
-!pipelines/panaroo/4_consensus/*.tsv
-!pipelines/panaroo/5_exclusivity/*.tsv
-!pipelines/panaroo/6_reports/*.tsv
-
 # ===============================
-# Temporary / large scratch files
+# Logs & reports
 # ===============================
-*.tmp
-*.tar
-*.zip
-*.gz0
-*.fna
-*.faa
-*.ffn
-*.csv
-*.tsv
 logs/
 reports/
-scripts/*.bak
-scripts/*.save
-python
-
-
-# Conda & caches
-__pycache__/
-*.pyc
-.venv/
-.env
-
-# Jupyter
-.ipynb_checkpoints/
-
-# OS noise
-.DS_Store
-
-# Huge raw data (lives outside repo)
-external/
-!external/README.md
-
-# Panaroo/Prokka heavy outputs
-pipelines/panaroo/1_annotate_prokka/
-pipelines/panaroo/2_panaroo/
-pipelines/panaroo/3_inclusivity/
-pipelines/panaroo/4_consensus/
-pipelines/panaroo/5_exclusivity/
-pipelines/panaroo/6_reports/
-
-# Logs & tmp
-logs/
 tmp/
 
-# Keep compact results and docs
+# ===============================
+# Results and docs (keep small)
+# ===============================
 !results/**/*.tsv
 !results/**/*.csv
 !results/**/*.png
