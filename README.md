@@ -1,8 +1,8 @@
 # From the repo root
 cat > /tmp/links.md <<'MD'
-> **Quick links**
-> - [Runbook: Panaroo (demo)](docs/runbook_panaroo.md)
-> - [Runbook: All genomes](docs/runbook_panaroo_Strep_A_All_Genomes_Analysis.md)
+**Quick links**
+- [Runbook: Panaroo (demo)](docs/runbook_panaroo.md)
+- [Runbook: All genomes](docs/runbook_panaroo_Strep_A_All_Genomes_Analysis.md)
 
 MD
 
@@ -48,3 +48,4 @@ This repository contains a lightweight, reproducible workflow to:
 
 📄 For the full step-by-step runbook, see:  
 [docs/runbook_panaroo.md](docs/runbook_panaroo.md)
+[docs/runbook_panaroo_Strep_A_All_Genomes_Analysis.md](docsrunbook_panaroo_Strep_A_All_Genomes_Analysis.md)
