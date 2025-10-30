@@ -28,7 +28,7 @@ def main():
     ap.add_argument("--split_dir", required=True,
                     help="Directory containing per-gene FASTA/ALN files (e.g. core_gene_alignment.aln.split/)")
     ap.add_argument("--output", required=True,
-                    help="Output TSV path, e.g. pipelines/.../demo_core99_identity.tsv")
+                    help="Output TSV path, e.g. pipelines/.../core100_identity.tsv")
     args = ap.parse_args()
 
     split_dir = Path(args.split_dir)

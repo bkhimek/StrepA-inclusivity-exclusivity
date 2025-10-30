@@ -3,8 +3,8 @@ set -euo pipefail
 
 ENV="roary_env"
 
-CONS="pipelines/panaroo/4_consensus/demo_core99_consensus.fasta"
-EXCL="pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv"
+CONS="pipelines/panaroo/4_consensus/core100_consensus.fasta"
+EXCL="pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv"
 OUTDIR="pipelines/panaroo/6_reports/pass_consensus_split"
 
 mkdir -p "$OUTDIR"

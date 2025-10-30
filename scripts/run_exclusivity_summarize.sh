@@ -2,8 +2,8 @@
 set -euo pipefail
 ENV="roary_env"
 
-IN="pipelines/panaroo/5_exclusivity/demo_core99_vs_nonpyogenes.tsv"
-OUT="pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv"
+IN="pipelines/panaroo/5_exclusivity/core100_vs_nonpyogenes.tsv"
+OUT="pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv"
 MIN_ID="${MIN_ID:-85}"
 MIN_QCOV="${MIN_QCOV:-80}"
 

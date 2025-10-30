@@ -69,3 +69,39 @@ reports/
 scripts/*.bak
 scripts/*.save
 python
+
+
+# Conda & caches
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS noise
+.DS_Store
+
+# Huge raw data (lives outside repo)
+external/
+!external/README.md
+
+# Panaroo/Prokka heavy outputs
+pipelines/panaroo/1_annotate_prokka/
+pipelines/panaroo/2_panaroo/
+pipelines/panaroo/3_inclusivity/
+pipelines/panaroo/4_consensus/
+pipelines/panaroo/5_exclusivity/
+pipelines/panaroo/6_reports/
+
+# Logs & tmp
+logs/
+tmp/
+
+# Keep compact results and docs
+!results/**/*.tsv
+!results/**/*.csv
+!results/**/*.png
+!results/**/*.pdf
+!docs/**

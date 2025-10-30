@@ -1,0 +1,20 @@
+# config/params.yaml
+
+# Paths (symlinks under external/)
+genomes_genomic: external/genomes_genomic
+exclusion_db: external/exclusion_db
+blastdb: external/blastdb
+
+# Threads
+threads: 8
+
+# Panaroo
+core_threshold: 1.0      # <-- 100% presence
+clean_mode: strict
+
+# Inclusivity identity threshold
+identity_thr: 98.0
+
+# BLAST exclusivity thresholds
+min_pident: 85.0
+min_qcovs: 80.0

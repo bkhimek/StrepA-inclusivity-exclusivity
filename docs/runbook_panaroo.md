@@ -20,22 +20,22 @@ This table shows which script belongs to which pipeline step:
 | **Step** | **Purpose**                                 | **Script(s)**                                                                                                                                                            | **Type**      |
 | -------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | Step 0   | Genome collection & cleanup                 | `collect_genomic_from_ncbi_pkg.sh`                                                                                                                                       | Bash          |
-| Step 1   | Genome annotation (Prokka)                  | `run_prokka_demo.sh`, `run_prokka_subset.sh`, `run_prokka_all.sh`                                                                                                        | Bash          |
-| Step 2   | Pan-genome (Panaroo)                        | `run_panaroo_demo.sh`, `run_panaroo_demo_core99.sh`, `run_panaroo_demo_core100.sh`                                                                                       | Bash          |
+| Step 1   | Genome annotation (Prokka)                  | `run_prokka.sh`, `run_prokka_subset.sh`, `run_prokka_all.sh`                                                                                                        | Bash          |
+| Step 2   | Pan-genome (Panaroo)                        | `run_panaroo.sh`, `run_panaroo_demo_core99.sh`, `run_panaroo_demo_core100.sh`                                                                                       | Bash          |
 | Step 3   | Inclusivity analysis (identity + filtering) | `split_core99_from_panaroo.py`, `calculate_identity_with_names.py`, `filter_high_identity_genes.py`, wrappers (`run_inclusivity_demo*.sh`, `run_inclusivity_filter*.sh`) | Python + Bash |
-| Step 4   | Consensus & SNP mapping                     | `build_consensus_from_split.py`, `summarize_snps_vs_consensus.py`, wrapper `run_consensus_demo.sh`                                                                       | Python + Bash |
-| Step 5   | Exclusivity BLAST & summary                 | `blast_consensus_exclusivity.py`, `summarize_blast_exclusivity.py`, wrapper `run_exclusivity_demo.sh` + `run_exclusivity_summarize.sh`                                   | Python + Bash |
+| Step 4   | Consensus & SNP mapping                     | `build_consensus_from_split.py`, `summarize_snps_vs_consensus.py`, wrapper `run_consensus.sh`                                                                       | Python + Bash |
+| Step 5   | Exclusivity BLAST & summary                 | `blast_consensus_exclusivity.py`, `summarize_blast_exclusivity.py`, wrapper `run_exclusivity.sh` + `run_exclusivity_summarize.sh`                                   | Python + Bash |
 | Step 6   | Extract final PASS consensus FASTAs         | `extract_pass_consensus.py`, wrapper `run_extract_pass_consensus.sh`                                                                                                     | Python + Bash |
 
 flowchart TD
   A0[Step 0: Download & clean genomes\n(data/genomes_genomic/*.fna)] --> A1
-  A1[Step 1: Prokka annotate\nscripts/run_prokka_demo.sh\n→ pipelines/panaroo/1_annotate_prokka/<ACC>/*.gff] --> A2
+  A1[Step 1: Prokka annotate\nscripts/run_prokka.sh\n→ pipelines/panaroo/1_annotate_prokka/<ACC>/*.gff] --> A2
   A2[Step 2: Panaroo (core threshold)\n95%: scripts/run_panaroo_demo95.sh\n99%: scripts/run_panaroo_demo_core99.sh\n→ core_gene_alignment.aln + gene_presence_absence.csv] --> A2b
   A2b[Split concatenated alignment\nscripts/split_core_alignment.py\n→ core_gene_alignment.aln.split/*.fasta] --> A3a
   A3a[Step 3A: Identity per gene\nscripts/run_inclusivity_demo_core99.sh\n→ 3_inclusivity/*_identity.tsv] --> A3b
   A3b[Step 3B: Filter ≥98% identity\nscripts/run_inclusivity_filter_demo_core99.sh\n→ 3_inclusivity/*_candidates.tsv] --> A4
-  A4[Step 4: Consensus + SNP mapping\nscripts/run_consensus_demo.sh\n→ 4_consensus/*.fasta + SNP tables] --> A5
-  A5[Step 5: Exclusivity BLAST vs non-pyogenes\nscripts/run_exclusivity_demo.sh + summarize_blast_exclusivity.py\n→ 5_exclusivity/*_exclusivity.tsv] --> A6
+  A4[Step 4: Consensus + SNP mapping\nscripts/run_consensus.sh\n→ 4_consensus/*.fasta + SNP tables] --> A5
+  A5[Step 5: Exclusivity BLAST vs non-pyogenes\nscripts/run_exclusivity.sh + summarize_blast_exclusivity.py\n→ 5_exclusivity/*_exclusivity.tsv] --> A6
   A6[Step 6: Extract PASS consensus FASTAs\nscripts/run_extract_pass_consensus.sh\n→ 6_reports/pass_consensus_split/*.fasta]
 
 Notes:
@@ -152,7 +152,7 @@ Outputs (demo core=95% default):
 
 Example (demo):
 conda activate panaroo_env
-bash scripts/run_panaroo_demo.sh
+bash scripts/run_panaroo.sh
 conda deactivate
 
 ## Step 2 (alt): “Near-universal” core (≥99% presence)
@@ -269,12 +269,12 @@ Builds consensus FASTA per candidate gene from the split core alignments.
 scripts/map_SNPs_vs_consensus.py
 Counts SNPs per strain vs. consensus and aggregates to per-gene stats.
 
-Wrapper: scripts/run_consensus_demo.sh
+Wrapper: scripts/run_consensus.sh
 Orchestrates both steps above and handles inputs/outputs.
 
 Run:
 conda activate roary_env
-bash scripts/run_consensus_demo.sh
+bash scripts/run_consensus.sh
 conda deactivate
 
 
@@ -314,14 +314,14 @@ pipelines/panaroo/5_exclusivity/demo_core99_vs_nonpyogenes.tsv — raw BLAST hit
 pipelines/panaroo/5_exclusivity/demo_core99_exclusivity.tsv — summarized PASS/REJECT per gene with nearest neighbor species
 
 - Scripts used:
-scripts/run_exclusivity_demo.sh — runs BLAST of inclusivity candidates vs non-S. pyogenes db
+scripts/run_exclusivity.sh — runs BLAST of inclusivity candidates vs non-S. pyogenes db
 scripts/summarize_blast_exclusivity.py — parses BLAST TSV, extracts best hits per gene, assigns decision
 scripts/run_exclusivity_summarize.sh — wrapper to run the summarizer
 
 ## Step 5A — Run BLAST search
 
 conda activate roary_env
-bash scripts/run_exclusivity_demo.sh
+bash scripts/run_exclusivity.sh
 conda deactivate
 
 Produces raw BLAST output:
