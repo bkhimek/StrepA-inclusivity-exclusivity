@@ -3,169 +3,246 @@ Runbook: Strep A – All Genomes Analysis
 This runbook describes the workflow for full-scale analysis of Streptococcus pyogenes genomes using Prokka + Panaroo + custom scripts.
 It extends the demo workflow and standardizes outputs for inclusivity and exclusivity analysis.
 
-Runbook: Strep A – All Genomes Analysis
+Runbook: All-Genomes Analysis (Wrapper-driven)
 
-This runbook describes the workflow for full-scale analysis of Streptococcus pyogenes genomes using Prokka + Panaroo + custom scripts.
-It extends the demo workflow and standardizes outputs for inclusivity and exclusivity analysis.
+This runbook documents the end-to-end pipeline for running inclusivity → consensus/SNPs → exclusivity over all downloaded genomes of Streptococcus pyogenes, driven by a single wrapper script.
 
-## Step 0. Genome collection
+It also explains how to adapt the same workflow to another species (e.g., Streptococcus dysgalactiae).
 
-Purpose: Download and organize complete genomes from NCBI.
-Inputs: List of accession IDs (e.g., data/accessions/strepA_all.txt).
-Outputs: Genome FASTA files in data/genomes_genomic/.
-Example:
-bash scripts/collect_genomic_from_ncbi_pkg.sh data/accessions/strepA_all.txt
+0) Folder layout (expected)
+StrepA-inclusivity-exclusivity/
+├─ data/
+│  └─ all_genomes_raw/                     # raw .fna (genomic FASTA) for the target species
+├─ pipelines/
+│  └─ panaroo/
+│     ├─ 1_annotate_prokka_spa/            # Prokka outputs (one subfolder per genome)
+│     ├─ 2_panaroo/
+│     │  └─ core100_spa/                    # Panaroo outputs for the target species
+│     ├─ 3_inclusivity/
+│     ├─ 4_consensus/
+│     ├─ 5_exclusivity/
+│     │  └─ blastdb/
+│     │     └─ non_pyogenes/                # BLAST DB of exclusion panel (near-neighbors)
+│     └─ 6_reports/
+├─ results/
+│  └─ runs/                                 # timestamped run folders with final artifacts
+├─ scripts/                                 # wrapper + helper scripts
+└─ docs/
 
-## Step 1. Genome annotation (Prokka)
 
-Inputs: Genome FASTAs from data/genomes_genomic/.
-Outputs: Annotated .gff files in pipelines/panaroo/1_annotate_prokka/.
-Example:
-bash scripts/run_prokka_all.sh
+You already have this structure; just keep new analyses consistent (one Panaroo output folder per species/threshold).
 
-## Step 2. Pan-genome construction (Panaroo)
+1) Environments (conda)
 
-Purpose: Build pan-genome and core alignment with core threshold = 100%.
-Inputs: Annotated .gff files.
-Outputs:
-pipelines/panaroo/2_panaroo/all/core_gene_alignment.aln
-pipelines/panaroo/2_panaroo/all/gene_presence_absence.csv
-pipelines/panaroo/2_panaroo/all/combined_DNA_CDS.fasta
+prokka_env: Prokka
 
-Example (inside run_all.sh):
-panaroo \
-  -i pipelines/panaroo/1_annotate_prokka/*/*.gff \
-  -o pipelines/panaroo/2_panaroo/all \
-  --clean-mode strict \
-  --core_threshold 1.0 \
-  --threads 8
+panaroo_env: Panaroo + cd-hit
 
-Step 3. Inclusivity analysis
-## 3A. Split and align per-gene
-python scripts/split_core100_from_panaroo.py \
-  --gpa pipelines/panaroo/2_panaroo/all/gene_presence_absence.csv \
-  --cds pipelines/panaroo/2_panaroo/all/combined_DNA_CDS.fasta \
-  --outdir pipelines/panaroo/2_panaroo/all/core_gene_alignment.aln.split \
-  --min_presence 1.0 \
-  --threads 8
+roary_env: Biopython, pandas, BLAST+ (makeblastdb, blastn), mafft
 
-## 3B. Compute pairwise identity
-python scripts/calculate_identity_with_names.py \
-  --split_dir pipelines/panaroo/2_panaroo/all/core_gene_alignment.aln.split \
-  --output    pipelines/panaroo/3_inclusivity/all_core100_identity.tsv
+Activate as needed; the wrapper will call the right env per step using conda run -n <env> ….
 
-## 3C. Filter ≥98% identity
-bash scripts/run_inclusivity_filter_core100.sh
+2) One-command run (the wrapper)
 
-Outputs:
-pipelines/panaroo/3_inclusivity/all_core100_identity.tsv
-pipelines/panaroo/3_inclusivity/all_core100_candidates.tsv
+From repo root:
 
-## Step 4. Consensus & SNPs
-bash scripts/run_consensus_core100.sh
-Outputs:
-
-pipelines/panaroo/4_consensus/core100_consensus.fasta
-pipelines/panaroo/4_consensus/core100_snps.tsv
-pipelines/panaroo/4_consensus/core100_pergene.tsv
-
-Optional: extract PASS-only consensus FASTAs into per-gene files:
-bash scripts/run_extract_pass_consensus.sh
-
-## Step 5. Exclusivity analysis
-
-5A. BLAST against non-pyogenes Streptococci
-bash scripts/run_exclusivity_core100.sh
-
-Input DB: streptococcus_non_pyogenes_db (prebuilt with makeblastdb).
-Output: pipelines/panaroo/5_exclusivity/core100_vs_nonpyogenes.tsv.
-
-5B. Summarize best hits
-
-bash scripts/run_exclusivity_summarize.sh
-
-Output: pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv
-with columns:
-Gene   neighbor_species   best_pident   best_qcovs   decision
-
-Step 6. Results & reporting
-
-Inclusivity: all_core100_candidates.tsv → list of highly conserved genes.
-Consensus FASTAs: core100_consensus.fasta → reference for SNP mapping.
-Exclusivity: core100_exclusivity.tsv → best matches in non-pyogenes.
-
-PASS-only FASTAs: folder with candidate-specific sequences for downstream primer/probe design.
-
-Example: Run all steps at once
-The pipeline is wrapped in:
-
+# Option A: just run with defaults (core=1.00 on spa folders)
 bash scripts/run_all.sh
 
-Logs are written into logs/.
-
-🔄 Extending to Other Species
-
-If you want to analyze another species (say Streptococcus agalactiae):
-
-1. Genome collection
-
-Prepare a new accession list, e.g. data/accessions/strep_agalactiae.txt.
-
-Download genomes with:
-
-bash scripts/collect_genomic_from_ncbi_pkg.sh data/accessions/strep_agalactiae.txt
+# Option B: override inputs/outputs (e.g., for a different species run)
+IN_GFF_DIR="pipelines/panaroo/1_annotate_prokka_spa" \
+PANAROO_OUT="pipelines/panaroo/2_panaroo/core100_spa" \
+bash scripts/run_all.sh
 
 
-2. Folder organization
+On success you’ll see something like:
 
-Keep outputs in species-specific subfolders, e.g.:
+[DONE] Run completed -> results/runs/run-YYYY-MM-DD_HHMMSS
+       Candidates:   pipelines/panaroo/3_inclusivity/core100_candidates.tsv
+       Consensus:    pipelines/panaroo/4_consensus/core100_consensus.fasta
+       BLAST sum:    pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv
+       PASS FASTAs:  pipelines/panaroo/5_exclusivity/PASS_FASTAs/
 
-pipelines/panaroo/2_panaroo/strep_agalactiae/
-pipelines/panaroo/3_inclusivity/strep_agalactiae/
-pipelines/panaroo/4_consensus/strep_agalactiae/
-pipelines/panaroo/5_exclusivity/strep_agalactiae/
+3) What the wrapper does (step-by-step)
+Step 1 — Panaroo (core threshold = 100%)
+
+Input: Prokka GFFs under pipelines/panaroo/1_annotate_prokka_spa/*/*.gff
+
+Runs: panaroo with --clean-mode strict --core_threshold 1.00
+
+Output:
+pipelines/panaroo/2_panaroo/core100_spa/{gene_presence_absence.csv, combined_DNA_CDS.fasta, gene_data.csv}
+
+Helper: none (external tool).
+
+Step 2 — Split per-gene & MAFFT align
+
+Runs: scripts/split_core100_from_panaroo.py
+
+Uses gene_presence_absence.csv + gene_data.csv to map cluster → CDS IDs, pulls sequences from combined_DNA_CDS.fasta, groups by cluster, and MAFFT-aligns each gene.
+
+Output: pipelines/panaroo/2_panaroo/core100_spa/core_gene_alignment.aln.split/*.fasta
+
+Helper: split_core100_from_panaroo.py
+
+Step 3 — Per-gene average identity
+
+Runs: scripts/calculate_identity_with_names.py
+
+Computes average pairwise identity per aligned gene file.
+
+Output: pipelines/panaroo/3_inclusivity/core100_identity.tsv
+(columns: Gene_File, Gene_Name, Average_Identity(%))
+
+Helper: calculate_identity_with_names.py
+
+Step 4 — Filter ≥98% identity (inclusivity)
+
+Runs: scripts/filter_inclusivity_candidates.py
+(Your wrapper may call the pre-existing run_inclusivity_filter_core100.sh—both are equivalent.)
+
+Output: pipelines/panaroo/3_inclusivity/core100_candidates.tsv
+(genes that meet the identity threshold, potentially with .raw duplicates)
+
+Helper: filter_inclusivity_candidates.py (or run_inclusivity_filter_core100.sh)
+
+We then deduplicate any *.raw companion rows into core100_candidates.nodup.tsv.
+
+Step 5 — Build consensus sequences
+
+Runs: scripts/build_consensus_from_split.py with --genes_txt core100_candidates.nodup.tsv
+
+Input: split alignments (Step 2) + the filtered gene list
+
+Output: pipelines/panaroo/4_consensus/core100_consensus.fasta
+(one consensus per kept gene)
+
+Helper: build_consensus_from_split.py
+
+Step 6 — Exclusivity BLAST & summary
+
+DB: pipelines/panaroo/5_exclusivity/blastdb/non_pyogenes/streptococcus_non_pyogenes_db
+
+If missing: wrapper rebuilds it with makeblastdb from streptococcus_non_pyogenes_combined.fna
+
+Runs: blastn on the consensus FASTA; then:
+
+scripts/summarize_blast_exclusivity.py to produce:
+pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv
+(columns: Gene, neighbor, best_pident, best_qcovs, decision)
+
+scripts/extract_pass_consensus.py to export PASS genes into
+pipelines/panaroo/5_exclusivity/PASS_FASTAs/ as individual FASTA files (one per gene; no .raw duplicates).
+
+Helpers: summarize_blast_exclusivity.py, extract_pass_consensus.py
+
+4) Quick checks
+# Panaroo key files
+ls -lh pipelines/panaroo/2_panaroo/core100_spa/{gene_presence_absence.csv,combined_DNA_CDS.fasta,gene_data.csv}
+
+# Split alignments present?
+find pipelines/panaroo/2_panaroo/core100_spa/core_gene_alignment.aln.split -name "*.fasta" | wc -l
+
+# Inclusivity tables not empty?
+wc -l pipelines/panaroo/3_inclusivity/core100_identity.tsv
+wc -l pipelines/panaroo/3_inclusivity/core100_candidates.tsv
+wc -l pipelines/panaroo/3_inclusivity/core100_candidates.nodup.tsv
+
+# Consensus FASTA has many entries?
+grep -c '^>' pipelines/panaroo/4_consensus/core100_consensus.fasta
+
+# Exclusivity summary & PASS FASTAs
+head -5 pipelines/panaroo/5_exclusivity/core100_exclusivity.tsv
+find pipelines/panaroo/5_exclusivity/PASS_FASTAs -name "*.fasta" | wc -l
+
+5) Helper scripts (one-line purpose)
+
+split_core100_from_panaroo.py — map Panaroo clusters to CDSs using gene_data.csv, create per-gene MAFFT alignments.
+
+calculate_identity_with_names.py — compute average pairwise identity per gene alignment.
+
+filter_inclusivity_candidates.py — keep genes with identity ≥ threshold (default 98%).
+
+build_consensus_from_split.py — build consensus sequences for a list of genes from the split alignments.
+
+summarize_blast_exclusivity.py — parse BLAST tabular output with species columns (includes sscinames, stitle), pick best off-target hit per gene, and mark PASS/REJECT using min_pident and min_qcovs.
+
+extract_pass_consensus.py — export only PASS genes to one-FASTA-per-gene in PASS_FASTAs/ and avoid .raw duplicates.
+
+6) Adapting to a different species (e.g., S. dysgalactiae)
+
+Download genomes (e.g., NCBI datasets) to data/all_genomes_raw/ for the new species.
+
+Annotate with Prokka (new output root to keep things separate). Example:
+
+# in prokka_env
+mkdir -p pipelines/panaroo/1_annotate_prokka_sdy
+parallel -j 8 '
+  BASENAME=$(basename {} .fna)
+  prokka \
+    --outdir pipelines/panaroo/1_annotate_prokka_sdy/${BASENAME} \
+    --prefix ${BASENAME} \
+    --force --cpus 1 {}
+' ::: data/all_genomes_raw/*.fna
 
 
-3. Scripts
+Choose a new Panaroo output folder, e.g. pipelines/panaroo/2_panaroo/core100_sdy.
 
-Most scripts take --gpa, --cds, --output arguments → you just point them to the correct input/output.
+Run the wrapper overriding input GFF folder + Panaroo out:
 
-The only strict thing: adjust core threshold (e.g., 1.0 for 100% presence or 0.95 for relaxed core).
-
-4. Exclusivity
-
-Build a non-target database excluding the species of interest.
-Example: for S. agalactiae analysis, build DB from all Streptococci except S. agalactiae.
-
-makeblastdb -in streptococcus_non_agalactiae.fna -dbtype nucl -out streptococcus_non_agalactiae_db
+IN_GFF_DIR="pipelines/panaroo/1_annotate_prokka_sdy" \
+PANAROO_OUT="pipelines/panaroo/2_panaroo/core100_sdy" \
+bash scripts/run_all.sh
 
 
-Update exclusivity scripts to use the correct DB.
+Exclusion BLAST DB
 
-🗂️ Tips for Project Organization
+Either reuse the existing non-pyogenes panel if appropriate, or build a new exclusion DB tailored to your new target (e.g., other streptococci, oropharyngeal flora).
 
-data/ → raw input (accession lists, FASTAs, BLAST DBs).
+Place combined FASTA at:
+pipelines/panaroo/5_exclusivity/blastdb/non_pyogenes/streptococcus_non_pyogenes_combined.fna
 
-pipelines/ → heavy intermediate outputs.
+The wrapper will build/refresh the DB automatically (or you can run makeblastdb yourself).
 
-results/runs/run-YYYY-MM-DD/ → symlink/copy of summary TSVs + FASTAs.
+Thresholds
 
-docs/ → runbooks, reports, figures.
+Inclusivity identity can stay at ≥98% to stay strict across the species.
 
-scripts/ → wrappers and Python helpers.
+Exclusivity decision defaults: min_pident=85, min_qcovs=80. Raise pident (e.g., 90–95) to be more conservative, or lower qcovs to allow near hits on shorter segments.
 
-✅ With this structure you can:
+Outputs
+The wrapper will emit the same artifacts under pipelines/panaroo/… and a timestamped results/runs/run-YYYY-MM-DD_HHMMSS folder with summarized copies.
 
-Run Strep A full analysis via run_all.sh.
+7) Common pitfalls (and fixes we already implemented)
 
-Add new species by creating a new accession list + DB, without touching core scripts.
+CDS/cluster naming mismatches between Panaroo tables and FASTA headers → fixed by using gene_data.csv mapping in split_core100_from_panaroo.py.
 
-Compare inclusivity/exclusivity results across species in results/runs/.
+.raw duplicates in candidates/consensus → we deduplicate lists and avoid exporting .raw in final PASS FASTAs.
+
+BLAST DB missing/corrupt → the wrapper rebuilds from …/non_pyogenes/streptococcus_non_pyogenes_combined.fna when needed.
+
+Globbing GFF paths → wrapper supports flat or nested GFF organization by reading ${IN_GFF_DIR}/*/*.gff. Put Prokka outputs in …/strain_id/strain_id.gff and you’re good.
+
+8) Reproducibility & versioning
+
+After a successful run:
+
+git add docs/runbook_panaroo_Strep_A_All_Genomes_Analysis.md \
+        scripts/run_all.sh scripts/*.py \
+        results/runs/run-YYYY-MM-DD_HHMMSS/*
+git commit -m "All-genomes run: core=100%; wrapper-driven; results + docs"
+git push origin main
 
 
+Large intermediates are ignored by .gitignore; summarized TSV/FASTA/plots in results/runs/… are kept.
 
+TL;DR
 
+Run everything with: bash scripts/run_all.sh
 
+Check outputs in results/runs/run-*/
+
+Adapt to new species by swapping Prokka GFF folder and Panaroo output root, and (optionally) adjusting the exclusion BLAST DB.
 
 
 
