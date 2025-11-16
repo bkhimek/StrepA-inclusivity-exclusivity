@@ -47,12 +47,12 @@ Activate as needed; the wrapper will call the right env per step using conda run
 From repo root:
 
 # Option A: just run with defaults (core=1.00 on spa folders)
-bash scripts/run_all.sh
+bash scripts/run_all_spa.sh
 
 # Option B: override inputs/outputs (e.g., for a different species run)
 IN_GFF_DIR="pipelines/panaroo/1_annotate_prokka_spa" \
 PANAROO_OUT="pipelines/panaroo/2_panaroo/core100_spa" \
-bash scripts/run_all.sh
+bash scripts/run_all_spa.sh
 
 
 On success you’ll see something like:
