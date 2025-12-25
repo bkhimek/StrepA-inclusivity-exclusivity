@@ -225,25 +225,26 @@ Candidate gene lists
 
 Summary statistics
 
-Common Pitfalls & Troubleshooting
-❌ Panaroo fails or produces empty core genes
-Check GFF consistency
+## Common Pitfalls & Troubleshooting
 
-Ensure Prokka versions are uniform
+### ❌ Panaroo fails or produces empty core genes
+- Check GFF consistency
+- Ensure Prokka versions are uniform
+- Avoid mixed genome formats (chromosome + contigs)
 
-Avoid mixed genome formats
+### ❌ Too few core genes
+- Confirm `--core_threshold 1.00` is appropriate
+- Inspect input genome quality
+- Check for failed annotations
 
-❌ Too few core genes
-Confirm --core_threshold 1.00 is appropriate
+### ❌ BLAST returns many hits
+- Check database composition
+- Ensure non-*S. pyogenes* genomes only
+- Tighten identity and coverage thresholds
 
-Inspect input genome quality
+### ❌ Wrapper script fails
+- Verify folder structure matches the runbook
+- Ensure executable permissions:
 
-❌ BLAST returns many hits
-Check database composition
-
-Tighten identity/coverage thresholds
-
-❌ Wrapper script fails
-Verify folder structure
-
-Ensure executable permissions:
+```bash
+chmod +x scripts/*.sh
