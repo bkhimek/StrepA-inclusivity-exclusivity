@@ -96,8 +96,6 @@ python ≥ 3.8
 
 Example:
 
-bash
-Copy code
 conda activate panaroo_env
 Workflow Summary
 Prepare and validate genome FASTA inputs
@@ -122,8 +120,6 @@ Input: .fna files
 
 Location: data/all_genomes_raw/
 
-bash
-Copy code
 ls data/all_genomes_raw/*.fna | wc -l
 Tips
 
@@ -134,8 +130,6 @@ Avoid mixed assemblies (chromosome + contigs in one file)
 Step 1 — Prokka Annotation
 Goal: Annotate all genomes uniformly before Panaroo.
 
-bash
-Copy code
 prokka \
   --outdir pipelines/panaroo/1_annotate_prokka_spa \
   --prefix spa \
@@ -149,8 +143,6 @@ Stored in 1_annotate_prokka_spa/gff/
 Step 2 — Panaroo Pangenome Analysis
 Goal: Build the pangenome and extract 100% core genes.
 
-bash
-Copy code
 panaroo \
   -i pipelines/panaroo/1_annotate_prokka_spa/gff/*.gff \
   -o pipelines/panaroo/2_panaroo/core100_spa \
@@ -166,8 +158,6 @@ Key Parameters
 Step 3 — Inclusivity Analysis
 Goal: Identify genes consistently present across all Strep A genomes.
 
-bash
-Copy code
 bash scripts/run_inclusivity.sh \
   pipelines/panaroo/2_panaroo/core100_spa \
   pipelines/panaroo/3_inclusivity
@@ -180,8 +170,6 @@ Candidate inclusivity markers
 Step 4 — Consensus / SNP Analysis
 Goal: Build consensus sequences and detect SNP variation.
 
-bash
-Copy code
 bash scripts/run_consensus_snps.sh \
   pipelines/panaroo/3_inclusivity \
   pipelines/panaroo/4_consensus_snps
@@ -196,16 +184,12 @@ Goal: Confirm candidates are absent from non-S. pyogenes genomes.
 
 Build BLAST database:
 
-bash
-Copy code
 makeblastdb \
   -in data/non_pyogenes/non_pyogenes.fna \
   -dbtype nucl \
   -out pipelines/panaroo/5_exclusivity/blastdb/non_pyogenes
 Run BLAST screening:
 
-bash
-Copy code
 bash scripts/run_exclusivity_blast.sh \
   pipelines/panaroo/4_consensus_snps \
   pipelines/panaroo/5_exclusivity
@@ -215,7 +199,6 @@ Goal: Generate standardized outputs for review.
 Outputs saved in:
 
 text
-Copy code
 pipelines/panaroo/6_reports/
 Includes:
 
